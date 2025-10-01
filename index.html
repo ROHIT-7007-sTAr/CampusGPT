@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CampusGPT — Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <style>
+    /* Keyframe for the fade-in-up animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    /* Base input field styling */
+    .form-input,
+    .form-select {
+      @apply w-full bg-slate-900/70 border border-slate-700 rounded-lg pl-12 pr-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300;
+    }
+
+    /* When the input group is in focus, change the icon color */
+    .input-group:focus-within svg {
+      @apply text-sky-400;
+    }
+
+    /* Button styling with enhanced hover effects */
+    .btn-submit {
+      @apply w-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white font-bold py-3 px-4 rounded-lg shadow-lg shadow-cyan-500/20 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-400/40 transition-all duration-300 ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-900 text-slate-200 font-sans antialiased">
+  <!-- Background Gradient Aurora -->
+  <div
+    class="absolute top-0 left-0 -z-10 h-full w-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(30,58,138,0.3),rgba(255,255,255,0))]">
+  </div>
+
+  <div class="min-h-screen flex items-center justify-center p-4">
+
+    <div
+      class="w-full max-w-md bg-slate-800/60 backdrop-blur-xl border border-sky-400/20 rounded-3xl p-8 shadow-2xl shadow-sky-500/10 animate-fadeInUp">
+      <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-white tracking-tight">CampusGPT</h1>
+        <p class="text-sky-300/90 mt-1">Your AI-Powered Academic Assistant</p>
+      </div>
+        <div class="space-y-6 max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg">
+          <!-- Role Selector with Icon -->
+          <div class="relative input-group">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-slate-500 group-hover:text-blue-500 transition-colors" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <select id="role-selector"
+              class="w-full pl-12 pr-4 py-3 bg-white border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-all duration-200 text-slate-700 placeholder-slate-400 invalid:border-red-500 invalid:ring-red-500">
+              <option value="">Select Role</option>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+            </select>
+          </div>
+
+          <!-- Email Input with Icon -->
+          <div class="relative input-group">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-slate-500 group-hover:text-blue-500 transition-colors" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+            </div>
+            <input id="email"
+              class="w-full pl-12 pr-4 py-3 bg-white border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-all duration-200 text-slate-700 placeholder-slate-400 invalid:border-red-500 invalid:ring-red-500"
+              placeholder="Enter your email" type="email" required />
+          </div>
+
+          <!-- Password Input with Icon -->
+          <div class="relative input-group">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-slate-500 group-hover:text-blue-500 transition-colors" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <input id="password"
+              class="w-full pl-12 pr-4 py-3 bg-white border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-all duration-200 text-slate-700 placeholder-slate-400 invalid:border-red-500 invalid:ring-red-500"
+              placeholder="Enter your password" type="password" required />
+          </div>
+
+          <!-- Division Selector with Icon -->
+          <div class="relative input-group">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-slate-500 group-hover:text-blue-500 transition-colors" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path
+                  d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+              </svg>
+            </div>
+            <select id="division-selector"
+              class="w-full pl-12 pr-4 py-3 bg-white border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-all duration-200 text-slate-700 placeholder-slate-400 invalid:border-red-500 invalid:ring-red-500"
+              required>
+              <option value="">Select Division</option>
+              <option value="ITA">ITA</option>
+              <option value="ENTC">ENTC</option>
+              <option value="COMP-A">COMP-A</option>
+              <option value="COMP-B">COMP-B</option>
+              <option value="COMP-C">COMP-C</option>
+            </select>
+          </div>
+        </div>
+
+        <p id="form-message" class="text-sm text-center text-red-400 h-4"></p>
+
+        <div class="pt-4">
+          <button class="btn-submit" onclick="handleLogin()">Login</button>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <p class="text-slate-400 text-sm">Don't have an account?
+          <a href="#" class="font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+            onclick="handleSignup(event)">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+  <script>
+    const roleSelector = document.getElementById('role-selector');
+    const divisionSelector = document.getElementById('division-selector');
+
+    async function handleLogin() {
+      const role = roleSelector.value;
+      if (role === 'teacher') {
+        await teacherLogin();
+      } else {
+        await studentLogin();
+      }
+    }
+
+    async function handleSignup(event) {
+      event.preventDefault();
+      const role = roleSelector.value;
+      if (role === 'teacher') {
+        document.getElementById('form-message').textContent = 'Please contact admin for teacher registration.';
+      } else {
+        await studentSignup();
+      }
+    }
+
+    async function teacherLogin() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const division = divisionSelector.value;
+      const msgEl = document.getElementById('form-message');
+      msgEl.textContent = '';
+
+      if (!email || !password || !division) { msgEl.textContent = 'All fields are required.'; return; }
+
+      try {
+        const res = await fetch('teacher.json');
+        if (!res.ok) throw new Error('teacher.json not found');
+        const data = await res.json();
+        const found = data.teachers.find(t => t.email === email && t.password === password);
+
+        if (found && found.divisions.includes(division)) {
+          sessionStorage.setItem('campusgpt_role', 'teacher');
+          sessionStorage.setItem('campusgpt_teacherName', found.name);
+          sessionStorage.setItem('campusgpt_division', division); // Save selected division
+          window.location.href = 'teacher.html';
+        } else {
+          msgEl.textContent = 'Invalid credentials or division access.';
+        }
+      } catch (err) {
+        console.error(err);
+        msgEl.textContent = 'Could not verify teacher data.';
+      }
+    }
+
+    async function studentSignup() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const division = divisionSelector.value;
+      const msgEl = document.getElementById('form-message');
+      msgEl.textContent = '';
+      if (!email || !password || !division) { msgEl.textContent = 'All fields are required to sign up.'; return; }
+
+      try {
+        const userCred = await auth.createUserWithEmailAndPassword(email, password);
+        const uid = userCred.user.uid;
+        await db.collection('students').doc(uid).set({
+          name: email.split('@')[0],
+          email,
+          roll: '',
+          division: division // Save student's division
+        });
+        msgEl.textContent = 'Signed up! Logging you in...';
+
+        // Automatically log in after signup
+        sessionStorage.setItem('campusgpt_role', 'student');
+        sessionStorage.setItem('campusgpt_uid', uid);
+        window.location.href = 'student.html';
+
+      } catch (err) {
+        console.error(err);
+        msgEl.textContent = err.message;
+      }
+    }
+
+    async function studentLogin() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const msgEl = document.getElementById('form-message');
+      msgEl.textContent = '';
+      if (!email || !password) { msgEl.textContent = 'Email and password are required.'; return; }
+
+      try {
+        const userCred = await auth.signInWithEmailAndPassword(email, password);
+        // After successful login, we need to check if the student belongs to the selected division.
+        // This is a client-side check. For real security, this should be handled by Firestore rules.
+        const studentDoc = await db.collection('students').doc(userCred.user.uid).get();
+        if (studentDoc.exists) {
+          sessionStorage.setItem('campusgpt_role', 'student');
+          sessionStorage.setItem('campusgpt_uid', userCred.user.uid);
+          window.location.href = 'student.html';
+        } else {
+          // This case is unlikely if signup is the only way to create accounts
+          msgEl.textContent = 'Student data not found.';
+          auth.signOut();
+        }
+      } catch (err) {
+        console.error(err);
+        msgEl.textContent = err.message;
+      }
+    }
+  </script>
+</body>
+
+</html>

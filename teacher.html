@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CampusGPT — Teacher</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-sky-900 to-slate-900 text-slate-200 font-sans antialiased">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8">
+            <div>
+                <h2 class="text-3xl font-bold text-white tracking-tight">Teacher Dashboard</h2>
+                <p class="text-sky-300">Welcome, <span id="teacherName"></span></p>
+            </div>
+            <button class="mt-4 sm:mt-0 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors" onclick="logout()">Logout</button>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="mb-8">
+            <div class="flex border-b border-sky-400/20">
+                <button id="attendance-nav" onclick="showTeacherView('attendance')" class="py-3 px-6 text-lg font-semibold text-white border-b-2 border-sky-500 transition-colors duration-300">Attendance</button>
+                <button id="tests-nav" onclick="showTeacherView('tests')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Tests & Grading</button>
+            </div>
+        </div>
+
+        <main>
+            <!-- Attendance View -->
+            <div id="attendance-view">
+                <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white">Mark Attendance</h3>
+                        <!-- Date Picker for Attendance -->
+                        <input type="date" id="attendanceDatePicker" class="bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition mt-4 sm:mt-0">
+                    </div>
+                    <div id="studentList" class="space-y-3 max-h-[60vh] overflow-auto pr-2"></div>
+                    <div class="mt-6 flex items-center gap-4">
+                        <button class="bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="saveAttendance()">Save Attendance</button>
+                        <span id="attendanceStatus" class="text-sm text-green-400 font-semibold"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tests & Grading View -->
+            <div id="tests-view" class="hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Upload Test Section -->
+                    <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Upload New Test</h3>
+                        <div class="space-y-4">
+                            <input id="testTitle" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="Test title" />
+                            <input id="testDate" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" type="date" />
+                            <input id="testTotal" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" type="number" placeholder="Total marks" />
+                            <input id="testRes" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="Resources URL (optional)" />
+                            <div class="flex items-center gap-4 pt-2">
+                                <button class="bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="uploadTest()">Upload Test</button>
+                                <span id="testUploadMsg" class="text-sm text-green-400 font-semibold"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grading Section -->
+                    <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Grade Submissions</h3>
+                        <select id="selectTest" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-sky-500 transition mb-4">
+                            <option value="">Select test to grade</option>
+                        </select>
+                        <div id="gradingList" class="space-y-3 max-h-[45vh] overflow-auto pr-2"></div>
+                        <div class="mt-6 flex items-center gap-4">
+                            <button id="saveGradesBtn" class="bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="saveGrades()">Save Grades</button>
+                            <span id="gradesMsg" class="text-sm text-green-400 font-semibold"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- All Tests List -->
+                <div class="mt-8 bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                    <h3 class="text-2xl font-bold text-white mb-4">All Created Tests</h3>
+                    <div id="allTests" class="space-y-3 max-h-[40vh] overflow-auto pr-2"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="gemini.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="common.js"></script>
+    <script src="teacher.js"></script>
+    <script>
+        function showTeacherView(viewName) {
+            document.getElementById('attendance-view').classList.toggle('hidden', viewName !== 'attendance');
+            document.getElementById('tests-view').classList.toggle('hidden', viewName !== 'tests');
+            
+            const attendanceNav = document.getElementById('attendance-nav');
+            const testsNav = document.getElementById('tests-nav');
+
+            attendanceNav.classList.toggle('text-white', viewName === 'attendance');
+            attendanceNav.classList.toggle('border-sky-500', viewName === 'attendance');
+            attendanceNav.classList.toggle('text-slate-400', viewName !== 'attendance');
+            attendanceNav.classList.toggle('border-transparent', viewName !== 'attendance');
+
+            testsNav.classList.toggle('text-white', viewName === 'tests');
+            testsNav.classList.toggle('border-sky-500', viewName === 'tests');
+            testsNav.classList.toggle('text-slate-400', viewName !== 'tests');
+            testsNav.classList.toggle('border-transparent', viewName !== 'tests');
+        }
+    </script>
+</body>
+</html>
+

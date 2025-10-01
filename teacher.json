@@ -1,0 +1,16 @@
+{
+  "teachers": [
+    {
+      "email": "teacher1@campus.edu",
+      "password": "password123",
+      "name": "Dr. Evelyn Reed",
+      "divisions": ["COMP-A", "COMP-B"]
+    },
+    {
+      "email": "teacher2@campus.edu",
+      "password": "teach456",
+      "name": "Prof. Gupta",
+      "divisions": ["COMP-C", "ITA", "ENTC"]
+    }
+  ]
+}

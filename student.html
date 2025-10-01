@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CampusGPT — Student</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-sky-900 to-slate-900 text-slate-200 font-sans antialiased">
+  <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+    <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8">
+      <div>
+        <h2 class="text-3xl font-bold text-white tracking-tight">Student Dashboard</h2>
+        <p class="text-sky-300" id="studentNameDisp"></p>
+      </div>
+      <button class="mt-4 sm:mt-0 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors" onclick="logoutStudent()">Logout</button>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="mb-8">
+      <div class="flex border-b border-sky-400/20">
+        <button id="dashboard-nav" onclick="showStudentView('dashboard')" class="py-3 px-6 text-lg font-semibold text-white border-b-2 border-sky-500 transition-colors duration-300">Dashboard</button>
+        <button id="upcoming-tests-nav" onclick="showStudentView('upcoming-tests')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Upcoming Tests</button>
+        <button id="community-nav" onclick="showStudentView('community')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Community</button>
+      </div>
+    </div>
+
+    <main>
+      <!-- Dashboard View -->
+      <div id="dashboard-view">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-8">
+                <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10 text-center">
+                  <h3 class="text-xl font-bold text-white mb-2">Overall Attendance</h3>
+                  <p id="attendancePercent" class="text-6xl font-bold text-cyan-400">0%</p>
+                  <p id="attendanceRatio" class="text-slate-400 mt-1">Attended 0 of 0</p>
+                </div>
+                <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                    <h3 class="text-xl font-bold text-white mb-4">AI-Powered Study Plan</h3>
+                    <p class="text-slate-400 text-sm mb-4">Generate a personalized study plan based on recent project topics from the blog.</p>
+                    <button id="generatePlanBtn" class="w-full bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="generateStudyPlan()">✨ Generate from Blogs</button>
+                    <div id="studyPlanOutput" class="text-slate-300 whitespace-pre-wrap mt-4 p-4 bg-slate-900/50 rounded-lg min-h-[100px]"></div>
+                </div>
+            </div>
+          
+            <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+              <h3 class="text-xl font-bold text-white mb-4">My Grades</h3>
+              <div id="gradesList" class="space-y-4 max-h-[34rem] overflow-auto pr-2"></div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Tests View -->
+      <div id="upcoming-tests-view" class="hidden">
+        <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+          <h3 class="text-2xl font-bold text-white mb-4">Upcoming Tests & Assignments</h3>
+          <div id="upcomingTestsList" class="space-y-4 max-h-[40rem] overflow-auto pr-2"></div>
+        </div>
+      </div>
+      
+      <!-- Community View -->
+      <div id="community-view" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Blog Room -->
+            <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                <h3 class="text-2xl font-bold text-white mb-4">Project Blog Room</h3>
+                <div class="space-y-4 mb-6">
+                  <input id="postTitle" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="Project title" />
+                  <textarea id="postContent" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 h-24 transition" placeholder="Describe your project..."></textarea>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                     <input id="postGit" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="GitHub URL (optional)" />
+                     <input id="postLinked" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="LinkedIn URL (optional)" />
+                  </div>
+                  <div class="flex items-center gap-4 pt-2">
+                    <button class="bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="createPost()">Post Project</button>
+                    <span id="postMsg" class="text-sm text-green-400 font-semibold"></span>
+                  </div>
+                </div>
+                <hr class="border-t border-sky-400/20 my-6" />
+                <div id="blogFeed" class="space-y-4 max-h-[34rem] overflow-auto pr-2"></div>
+            </div>
+            <!-- Study Group Matchmaker -->
+            <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                <h3 class="text-2xl font-bold text-white mb-4">AI Study Group Finder</h3>
+                <p class="text-slate-400 text-sm mb-4">Find the best study partners for your upcoming tests based on complementary skills.</p>
+                <div class="space-y-4">
+                    <select id="studyGroupTestSelect" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-sky-500 transition">
+                        <option value="">Select an upcoming test...</option>
+                    </select>
+                    <button class="w-full bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="findStudyGroups()">✨ Find My Group</button>
+                    <p id="optInMsg" class="text-xs text-center text-slate-500">Clicking "Find" will opt you in for this test.</p>
+                </div>
+                <hr class="border-t border-sky-400/20 my-6" />
+                <div id="studyGroupResults" class="space-y-3 min-h-[200px]">
+                    <p class="text-slate-400 text-center">Your matched study groups will appear here.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="gemini.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="common.js"></script>
+  <script src="student.js"></script>
+  <script>
+    function showStudentView(viewName) {
+      // Toggle visibility of the main content views
+      document.getElementById('dashboard-view').classList.toggle('hidden', viewName !== 'dashboard');
+      document.getElementById('upcoming-tests-view').classList.toggle('hidden', viewName !== 'upcoming-tests');
+      document.getElementById('community-view').classList.toggle('hidden', viewName !== 'community');
+
+      // Get nav buttons
+      const dashboardNav = document.getElementById('dashboard-nav');
+      const upcomingTestsNav = document.getElementById('upcoming-tests-nav');
+      const communityNav = document.getElementById('community-nav');
+
+      // Update styles for Dashboard tab
+      dashboardNav.classList.toggle('text-white', viewName === 'dashboard');
+      dashboardNav.classList.toggle('border-sky-500', viewName === 'dashboard');
+      dashboardNav.classList.toggle('text-slate-400', viewName !== 'dashboard');
+      dashboardNav.classList.toggle('border-transparent', viewName !== 'dashboard');
+
+      // Update styles for Upcoming Tests tab
+      upcomingTestsNav.classList.toggle('text-white', viewName === 'upcoming-tests');
+      upcomingTestsNav.classList.toggle('border-sky-500', viewName === 'upcoming-tests');
+      upcomingTestsNav.classList.toggle('text-slate-400', viewName !== 'upcoming-tests');
+      upcomingTestsNav.classList.toggle('border-transparent', viewName !== 'upcoming-tests');
+      
+      // Update styles for Community tab
+      communityNav.classList.toggle('text-white', viewName === 'community');
+      communityNav.classList.toggle('border-sky-500', viewName === 'community');
+      communityNav.classList.toggle('text-slate-400', viewName !== 'community');
+      communityNav.classList.toggle('border-transparent', viewName !== 'community');
+    }
+  </script>
+</body>
+</html>
+
