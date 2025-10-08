@@ -7,56 +7,70 @@
   "Week_Start": "01/07/2025",
   "Timetable": {
     "Monday": [
-      {"time": "8:30 - 9:30", "subject": "SIA-A DSAL-213(KB) | SIA-B OOPL-316(GM) | SIA-C CEP-317(PP) | SIA-D PME-214(NG)"},
-      {"time": "9:30 - 10:30", "subject": "SIA-B OOPL-316(GM) | SIA-C DSAL-213(KB) | SIA-D CEP-317(PP)"},
-      {"time": "10:30 - 10:45", "subject": "Short Recess"},
-      {"time": "10:45 - 11:45", "subject": "DELD - PP"},
-      {"time": "11:45 - 12:45", "subject": "BCN - HC"},
-      {"time": "12:45 - 1:45", "subject": "Long Recess"},
-      {"time": "1:45 - 2:45", "subject": "DSA - KB"},
-      {"time": "2:45 - 3:45", "subject": "OOP - GM"},
-      {"time": "3:45 - 4:45", "subject": "SIA-B PME (TUT) - NG"}
+      {
+        "time": "8:30 - 10:30",
+        "subject": "SIA-A DSAL-213(KB) | SIA-B OOPL-316(GM) | SIA-C CEP-317(PP) | SIA-D PME-214(NG)"
+      },
+      { "time": "10:30 - 10:45", "subject": "Short Recess" },
+      { "time": "10:45 - 11:45", "subject": "DELD - PP" },
+      { "time": "11:45 - 12:45", "subject": "BCN - HC" },
+      { "time": "12:45 - 1:45", "subject": "Long Recess" },
+      { "time": "1:45 - 2:45", "subject": "DSA - KB" },
+      { "time": "2:45 - 3:45", "subject": "OOP - GM" },
+      { "time": "3:45 - 4:45", "subject": "SIA-B PME (TUT) - NG" }
     ],
     "Tuesday": [
-      {"time": "8:30 - 9:30", "subject": "SIA-A OOPL-316(GM) | SIA-B DSAL-213(KB) | SIA-C PME-214(NG) | SIA-D CEP-317(PP)"},
-      {"time": "9:30 - 10:30", "subject": "SIA-A DSAL-213(KB) | SIA-B PME-214(NG) | SIA-C CEP-317(PP)"},
-      {"time": "10:30 - 10:45", "subject": "Short Recess"},
-      {"time": "10:45 - 11:45", "subject": "OOP - GM"},
-      {"time": "11:45 - 12:45", "subject": "DSA - KB"},
-      {"time": "12:45 - 1:45", "subject": "Long Recess"},
-      {"time": "1:45 - 2:45", "subject": "UHV-VB"},
-      {"time": "2:45 - 3:45", "subject": "DELD - PP"},
-      {"time": "3:45 - 4:45", "subject": "Mentor Meeting"}
+      {
+        "time": "8:30 - 10:30",
+        "subject": "SIA-A OOPL-316(GM) | SIA-B DSAL-213(KB) | SIA-C DSAL-214(SN) | SIA-D CEP-317(PP)"
+      },
+      { "time": "10:30 - 10:45", "subject": "Short Recess" },
+      { "time": "10:45 - 11:45", "subject": "OOP - GM" },
+      { "time": "11:45 - 12:45", "subject": "DSA - KB" },
+      { "time": "12:45 - 1:45", "subject": "Long Recess" },
+      { "time": "1:45 - 2:45", "subject": "UHV-VB" },
+      { "time": "2:45 - 3:45", "subject": "DELD - PP" },
+      { "time": "3:45 - 4:45", "subject": "Mentor Meeting" }
     ],
     "Wednesday": [
-      {"time": "8:30 - 9:30", "subject": "SIA-A CEP-317(PP) | SIA-B PME-214(NG) | SIA-C DSAL-213(KB) | SIA-D OOPL-316(GM)"},
-      {"time": "9:30 - 10:30", "subject": "SIA-A PME-214(NG) | SIA-B CEP-317(PP)"},
-      {"time": "10:30 - 10:45", "subject": "Short Recess"},
-      {"time": "10:45 - 11:45", "subject": "DSA - KB"},
-      {"time": "11:45 - 12:45", "subject": "OE - DT"},
-      {"time": "12:45 - 1:45", "subject": "Long Recess"},
-      {"time": "1:45 - 2:45", "subject": "DELD - PP"},
-      {"time": "2:45 - 3:45", "subject": "SIA-A PME (TUT) - NG"},
-      {"time": "3:45 - 4:45", "subject": "SIA-C PME (TUT) - NG"}
+      {
+        "time": "8:30 - 10:30",
+        "subject": "SIA-A CEP-317(PP) | SIA-B PME-214(NG) | SIA-C DSAL-213(KB) | SIA-D OOPL-316(GM)"
+      },
+      { "time": "10:30 - 10:45", "subject": "Short Recess" },
+      { "time": "10:45 - 11:45", "subject": "DSA - KB" },
+      { "time": "11:45 - 12:45", "subject": "OE - DT" },
+      { "time": "12:45 - 1:45", "subject": "Long Recess" },
+      { "time": "1:45 - 2:45", "subject": "DELD - PP" },
+      { "time": "2:45 - 3:45", "subject": "SIA-A PME (TUT) - NG" },
+      { "time": "3:45 - 4:45", "subject": "SIA-C PME (TUT) - NG" }
     ],
     "Thursday": [
-      {"time": "8:30 - 9:30", "subject": "SIA-A CFJ - JS - 225 | SIA-B DSAL-213(PP) | SIA-C DSAL-213(KB)"},
-      {"time": "9:30 - 10:30", "subject": "SIA-B CEP-317(PP) | SIA-C OOP - SS - A6"},
-      {"time": "10:30 - 10:45", "subject": "Short Recess"},
-      {"time": "10:45 - 11:45", "subject": "OE - DT"},
-      {"time": "11:45 - 12:45", "subject": "BCN - HC"},
-      {"time": "12:45 - 1:45", "subject": "Long Recess"},
-      {"time": "1:45 - 2:45", "subject": "SIA-A PME - NG | SIA-B CEP-317 - JS | SIA-D DSAL MPD-224"}
+      {
+        "time": "8:30 - 10:30",
+        "subject": "SIA-A CEP-225(JS) | SIA-B DSAL-214(MPD) | SIA-C PME-C09(NG) | SIA-D DSAL-213(KB)"
+      },
+      { "time": "10:30 - 10:45", "subject": "Short Recess" },
+      { "time": "10:45 - 11:45", "subject": "OE - DT" },
+      { "time": "11:45 - 12:45", "subject": "BCN - HC" },
+      { "time": "12:45 - 1:45", "subject": "Long Recess" },
+      {
+        "time": "1:45 - 3:45",
+        "subject": "SIA-A PME-C09(NG) | SIA-B CEP-317(PP) | SIA-C CEP-A06(SS) | SIA-D DSAL-224(MPD)"
+      },
+      { "time": "3:45 - 4:45", "subject": "SIA-D PME(TUT) - NG" }
     ],
     "Friday": [
-      {"time": "8:30 - 9:30", "subject": "SIA-A PSSL - SN - 225 | SIA-B CEP - A6 | SIA-C PME - NG | SIA-D CEP - ST - 224"},
-      {"time": "9:30 - 10:30", "subject": "SIA-C PME - NG"},
-      {"time": "10:30 - 10:45", "subject": "Short Recess"},
-      {"time": "10:45 - 11:45", "subject": "BCN - HC"},
-      {"time": "11:45 - 12:45", "subject": "OOP - GM"},
-      {"time": "12:45 - 1:45", "subject": "Long Recess"},
-      {"time": "1:45 - 2:45", "subject": "UHV - VB"}
-    ],
-    "Saturday": []
+      {
+        "time": "8:30 - 9:30",
+        "subject": "SIA-A DSAL-225(SN) | SIA-B CEP-A06(BK) | SIA-C OOPL-316(GM) | SIA-D CEP-224(ST)"
+      },
+      { "time": "9:30 - 10:30", "subject": "SIA-C PME - NG" },
+      { "time": "10:30 - 10:45", "subject": "Short Recess" },
+      { "time": "10:45 - 11:45", "subject": "BCN - HC" },
+      { "time": "11:45 - 12:45", "subject": "OOP - GM" },
+      { "time": "12:45 - 1:45", "subject": "Long Recess" },
+      { "time": "1:45 - 2:45", "subject": "UHV - VB" }
+    ]
   }
 }
