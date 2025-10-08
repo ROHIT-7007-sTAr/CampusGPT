@@ -6,6 +6,10 @@
   // --- 1. Inject styles for animations and a cleaner UI ---
   const style = document.createElement('style');
   style.textContent = `
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    #campusgpt-chatwin {
+      font-family: 'Inter', sans-serif;
+    }
     #campusgpt-chatbtn {
       transition: transform 0.2s ease-in-out;
     }
@@ -29,7 +33,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(90deg,#7c3aed,#8b5cf6); 
+      background: linear-gradient(90deg, #6d28d9, #8b5cf6);
       color: white; 
       padding: 12px; 
       font-weight: 700;
@@ -37,10 +41,13 @@
     #cgpt-close-btn {
       background: none;
       border: none;
-      color: white;
+      color: #e5e7eb;
       font-size: 20px;
       cursor: pointer;
       line-height: 1;
+    }
+    #cgpt-close-btn:hover {
+      color: white;
     }
     .typing-indicator {
         display: flex;
@@ -51,7 +58,7 @@
         height: 8px;
         width: 8px;
         margin: 0 2px;
-        background-color: #a78bfa;
+        background-color: #9ca3af;
         border-radius: 50%;
         display: inline-block;
         animation: bounce 1.4s infinite ease-in-out both;
@@ -62,6 +69,40 @@
         0%, 80%, 100% { transform: scale(0); }
         40% { transform: scale(1.0); }
     }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .chat-bubble {
+        padding: 12px 16px;
+        border-radius: 16px;
+        margin: 8px 0;
+        max-width: 85%;
+        word-wrap: break-word;
+        font-size: 18px;
+        line-height: 1.5;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        animation: fadeIn 0.3s ease-out;
+    }
+    #cgpt-send:hover {
+      background: #6d28d9 !important;
+    }
+    #cgpt-input::placeholder {
+      color: #9ca3af;
+    }
+    #cgpt-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+    #cgpt-messages::-webkit-scrollbar-track {
+      background: #f3f4f6;
+    }
+    #cgpt-messages::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 4px;
+    }
+    #cgpt-messages::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
   `;
   document.head.appendChild(style);
 
@@ -70,6 +111,7 @@
   const btn = document.createElement('button');
   btn.id = 'campusgpt-chatbtn';
   btn.className = 'btn';
+  btn.style.background = '#6d28d9';
   btn.style.position = 'fixed';
   btn.style.right = '22px';
   btn.style.bottom = '22px';
@@ -79,7 +121,7 @@
   btn.style.display = 'flex';
   btn.style.alignItems = 'center';
   btn.style.justifyContent = 'center';
-  btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C12.8 6.5 13.5 5.8 13.5 5C13.5 4.2 12.8 3.5 12 3.5C11.2 3.5 10.5 4.2 10.5 5C10.5 5.8 11.2 6.5 12 6.5Z"/><path d="M18.5 10.5C18.5 11.3 19.2 12 20 12C20.8 12 21.5 11.3 21.5 10.5C21.5 9.7 20.8 9 20 9C19.2 9 18.5 9.7 18.5 10.5Z"/><path d="M3.5 10.5C3.5 11.3 4.2 12 5 12C5.8 12 6.5 11.3 6.5 10.5C6.5 9.7 5.8 9 5 9C4.2 9 3.5 9.7 3.5 10.5Z"/><path d="M12 18.5C14.5 18.5 16.5 16.5 16.5 14H7.5C7.5 16.5 9.5 18.5 12 18.5Z"/><path d="M14.5 14.5C14.8 14.5 15 14.3 15 14C15 12.1 13.4 10.5 11.5 10.5C9.6 10.5 8 12.1 8 14C8 14.3 8.2 14.5 8.5 14.5H14.5Z"/><path d="M7 21.5C7 21.8 7.2 22 7.5 22H16.5C16.8 22 17 21.8 17 21.5V21H7V21.5Z"/></svg>`;
+  btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`;
   document.body.appendChild(btn);
 
   // --- 3. Create Chat Window with improved structure ---
@@ -88,10 +130,10 @@
   win.style.position = 'fixed';
   win.style.right = '22px';
   win.style.bottom = '86px';
-  win.style.width = '340px';
-  win.style.height = '420px';
+  win.style.width = '400px';
+  win.style.height = '500px';
   win.style.borderRadius = '12px';
-  win.style.boxShadow = '0 12px 30px rgba(2,6,23,0.12)';
+  win.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.1)';
   win.style.overflow = 'hidden';
   win.className = 'card';
   win.innerHTML = `
@@ -99,10 +141,10 @@
       <span>CampusGPT Assistant</span>
       <button id="cgpt-close-btn">&times;</button>
     </div>
-    <div id="cgpt-messages" style="padding:12px; height:300px; overflow:auto; display:flex; flex-direction:column; gap: 8px; flex-grow: 1;"></div>
-    <div style="display:flex; gap:8px; padding:10px; border-top:1px solid rgba(2,6,23,0.04)">
-      <input id="cgpt-input" class="input" placeholder="Ask a question..." style="flex:1" />
-      <button id="cgpt-send" class="btn">Send</button>
+    <div id="cgpt-messages" style="padding:16px; height:300px; overflow:auto; display:flex; flex-direction:column; gap: 8px; flex-grow: 1; scroll-behavior: smooth;"></div>
+    <div style="display:flex; gap:8px; padding:10px; border-top:1px solid #e5e7eb">
+      <input id="cgpt-input" class="input" placeholder="Ask a question..." style="flex:1; background-color: #f3f4f6; border-color: #e5e7eb;" />
+      <button id="cgpt-send" class="btn" style="background: #7c3aed; color: white; border-radius: 8px; padding: 10px 16px; transition: background-color 0.3s ease;">Send</button>
     </div>
   `;
   document.body.appendChild(win);
@@ -113,7 +155,7 @@
     if (win.classList.contains('visible')) {
       const msgs = document.getElementById('cgpt-messages');
       if (msgs.children.length === 0) {
-        msgs.innerHTML = `<div class="chat-bubble" style="background:#ffffff; color:#0f172a">Hello! Ask about your attendance or grades (e.g., "how many lectures for 75%?").</div>`;
+        msgs.innerHTML = `<div class="chat-bubble" style="background:#ffffff; color:#0f172a"><strong>Welcome to CampusGPT!</strong><br>Your friendly academic assistant. Feel free to ask me anything about your attendance, grades, timetable, or faculty. <br><br><em>For example:</em><br>"How many lectures do I need for 75% attendance?"<br>"What is the timetable for Monday?"<br>"Who teaches Data Structures and Algorithms?"</div>`;
       }
     }
   });
@@ -125,12 +167,28 @@
   });
 
   // --- 5. Core Functions ---
+  let timetableData = null;
+  let facultyData = null;
+
+  async function loadData() {
+    try {
+      const [timetableRes, facultyRes] = await Promise.all([
+        fetch('timetable.json'),
+        fetch('faculty.json')
+      ]);
+      timetableData = await timetableRes.json();
+      facultyData = await facultyRes.json();
+    } catch (error) {
+      console.error("Error loading data:", error);
+    }
+  }
+
   async function addMessage(content, sender = 'bot', isHtml = false) {
     const container = document.getElementById('cgpt-messages');
     const el = document.createElement('div');
     el.className = 'chat-bubble';
-    el.style.background = sender === 'bot' ? '#f3e8ff' : 'linear-gradient(90deg,#7c3aed,#8b5cf6)';
-    el.style.color = sender === 'bot' ? '#6b21a8' : 'white';
+    el.style.background = sender === 'bot' ? '#e5e7eb' : 'linear-gradient(90deg, #6d28d9, #8b5cf6)';
+    el.style.color = sender === 'bot' ? '#1f2937' : 'white';
     el.style.alignSelf = sender === 'bot' ? 'flex-start' : 'flex-end';
     
     if (isHtml) {
@@ -193,6 +251,15 @@
       }
     }
 
+    if (timetableData && facultyData) {
+      // Handle timetable and faculty questions
+      const response = await handleTimetableAndFaculty(lowered);
+      if (response) {
+        await addMessage(response, 'bot');
+        return;
+      }
+    }
+
     // ✨ New: Fallback to Gemini API with Typing Indicator
     await addMessage(`<div class="typing-indicator"><span></span><span></span><span></span></div>`, "bot", true);
     
@@ -205,6 +272,62 @@
     lastMessage.innerHTML = ''; // Clear the typing indicator
     lastMessage.textContent = geminiResponse;
   }
+
+  async function handleTimetableAndFaculty(query) {
+    // Enhanced keyword matching for better intent detection
+    const isTimetableQuery = query.includes('timetable') || query.includes('schedule') || query.includes('what is on') || query.includes('when is');
+    const isFacultyQuery = query.includes('faculty') || query.includes('teacher') || query.includes('professor') || query.includes('who teaches');
+
+    if (isTimetableQuery) {
+        // Attempt to extract a day from the query
+        const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+        const day = days.find(d => query.includes(d));
+
+        if (day) {
+            const dayTitleCase = day.charAt(0).toUpperCase() + day.slice(1);
+            const schedule = timetableData.Timetable[dayTitleCase];
+            if (schedule && schedule.length > 0) {
+                const scheduleText = schedule.map(item => `${item.time}: ${item.subject}`).join('\n');
+                return `Here is the schedule for ${dayTitleCase}:\n${scheduleText}`;
+            } else {
+                return `There are no classes scheduled for ${dayTitleCase}.`;
+            }
+        } else {
+            // Generic timetable response if no specific day is mentioned
+            return "I can provide the timetable for any day of the week. For example, try 'What is the timetable for Monday?'";
+        }
+    }
+
+    if (isFacultyQuery) {
+        // Attempt to extract a course or faculty name from the query
+        const courseName = Object.values(facultyData.Courses).find(c => query.includes(c.name.toLowerCase()));
+        const facultyName = Object.values(facultyData.Courses).flatMap(c => c.faculty).find(f => query.includes(f.toLowerCase()));
+
+        if (courseName) {
+            const facultyList = courseName.faculty.join(', ');
+            return `The faculty for ${courseName.name} are: ${facultyList}.`;
+        }
+
+        if (facultyName) {
+            const coursesTaught = Object.entries(facultyData.Courses)
+                .filter(([_, course]) => course.faculty.includes(facultyName))
+                .map(([_, course]) => course.name);
+            
+            if (coursesTaught.length > 0) {
+                return `${facultyName} teaches the following courses: ${coursesTaught.join(', ')}.`;
+            } else {
+                return `I couldn't find any courses taught by ${facultyName}.`;
+            }
+        }
+        
+        // Generic faculty response
+        return "I can provide information about faculty and the courses they teach. For example, ask 'Who teaches Data Structures and Algorithms?' or 'What courses does Prof. Kanchan Bhale teach?'";
+    }
+
+    return null; // No relevant query found
+  }
+  
+  loadData();
 
 })();
 

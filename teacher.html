@@ -26,6 +26,8 @@
             <div class="flex border-b border-sky-400/20">
                 <button id="attendance-nav" onclick="showTeacherView('attendance')" class="py-3 px-6 text-lg font-semibold text-white border-b-2 border-sky-500 transition-colors duration-300">Attendance</button>
                 <button id="tests-nav" onclick="showTeacherView('tests')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Tests & Grading</button>
+                <button id="timetable-nav" onclick="showTeacherView('timetable')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Timetable</button>
+                <button id="faculty-nav" onclick="showTeacherView('faculty')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Faculty</button>
             </div>
         </div>
 
@@ -84,6 +86,22 @@
                     <div id="allTests" class="space-y-3 max-h-[40vh] overflow-auto pr-2"></div>
                 </div>
             </div>
+
+            <!-- Timetable View -->
+            <div id="timetable-view" class="hidden">
+                <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                    <h3 class="text-2xl font-bold text-white mb-4">Class Timetable</h3>
+                    <div id="timetable-container" class="space-y-3"></div>
+                </div>
+            </div>
+
+            <!-- Faculty View -->
+            <div id="faculty-view" class="hidden">
+                <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                    <h3 class="text-2xl font-bold text-white mb-4">Faculty Information</h3>
+                    <div id="faculty-container" class="space-y-3"></div>
+                </div>
+            </div>
         </main>
     </div>
 
@@ -95,9 +113,13 @@
         function showTeacherView(viewName) {
             document.getElementById('attendance-view').classList.toggle('hidden', viewName !== 'attendance');
             document.getElementById('tests-view').classList.toggle('hidden', viewName !== 'tests');
+            document.getElementById('timetable-view').classList.toggle('hidden', viewName !== 'timetable');
+            document.getElementById('faculty-view').classList.toggle('hidden', viewName !== 'faculty');
             
             const attendanceNav = document.getElementById('attendance-nav');
             const testsNav = document.getElementById('tests-nav');
+            const timetableNav = document.getElementById('timetable-nav');
+            const facultyNav = document.getElementById('faculty-nav');
 
             attendanceNav.classList.toggle('text-white', viewName === 'attendance');
             attendanceNav.classList.toggle('border-sky-500', viewName === 'attendance');
@@ -108,6 +130,16 @@
             testsNav.classList.toggle('border-sky-500', viewName === 'tests');
             testsNav.classList.toggle('text-slate-400', viewName !== 'tests');
             testsNav.classList.toggle('border-transparent', viewName !== 'tests');
+
+            timetableNav.classList.toggle('text-white', viewName === 'timetable');
+            timetableNav.classList.toggle('border-sky-500', viewName === 'timetable');
+            timetableNav.classList.toggle('text-slate-400', viewName !== 'timetable');
+            timetableNav.classList.toggle('border-transparent', viewName !== 'timetable');
+
+            facultyNav.classList.toggle('text-white', viewName === 'faculty');
+            facultyNav.classList.toggle('border-sky-500', viewName === 'faculty');
+            facultyNav.classList.toggle('text-slate-400', viewName !== 'faculty');
+            facultyNav.classList.toggle('border-transparent', viewName !== 'faculty');
         }
     </script>
 </body>

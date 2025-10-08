@@ -60,6 +60,60 @@ async function loadStudentDashboard(){
 
   loadBlogs();
   loadUpcomingTests();
+  loadTimetable();
+  loadFaculty();
+}
+
+async function loadTimetable() {
+  const container = document.getElementById('timetable-container');
+  if (!container) return;
+  container.innerHTML = '<p class="text-slate-400 text-center">Loading timetable...</p>';
+  try {
+    const response = await fetch('timetable.json');
+    const timetableData = await response.json();
+    const timetable = timetableData.Timetable;
+    let html = '<table class="w-full text-sm text-left text-slate-400">'
+    html += '<thead class="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400"><tr><th scope="col" class="px-6 py-3">Day</th><th scope="col" class="px-6 py-3">Time</th><th scope="col" class="px-6 py-3">Subject</th></tr></thead><tbody>';
+    for (const day in timetable) {
+        timetable[day].forEach((item, index) => {
+            html += `<tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700">`;
+            if (index === 0) {
+                html += `<td rowspan="${timetable[day].length}" class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white">${day}</td>`;
+            }
+            html += `<td class="px-6 py-4">${item.time}</td>`;
+            html += `<td class="px-6 py-4">${item.subject}</td>`;
+            html += `</tr>`;
+        });
+    }
+    html += '</tbody></table>';
+    container.innerHTML = html;
+  } catch (err) {
+    console.error("Error loading timetable:", err);
+    container.innerHTML = '<p class="text-red-400">Could not load timetable.</p>';
+  }
+}
+
+async function loadFaculty() {
+  const container = document.getElementById('faculty-container');
+  if (!container) return;
+  container.innerHTML = '<p class="text-slate-400 text-center">Loading faculty...</p>';
+  try {
+    const response = await fetch('faculty.json');
+    const facultyData = await response.json();
+    const courses = facultyData.Courses;
+    let html = '';
+    for (const courseCode in courses) {
+      const course = courses[courseCode];
+      html += `<div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700 mb-4">
+                  <h4 class="font-bold text-white mb-2">${course.name}</h4>
+                  <p class="text-slate-300"><strong>Faculty:</strong> ${course.faculty.join(', ')}</p>
+               </div>`;
+    }
+    container.innerHTML = html;
+  } catch (err) {
+    console.error("Error loading faculty:", err);
+    container.innerHTML = '<p class="text-red-400">Could not load faculty data.</p>';
+  }
 }
 
 // create blog post

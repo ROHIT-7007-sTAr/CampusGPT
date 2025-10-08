@@ -1,0 +1,28 @@
+{
+  "Courses": {
+    "PCC-301-TT": {"name": "Data Structures and Algorithms", "faculty": ["Prof. Kanchan Bhale", "Prof. Monali Deshmukh", "Prof. Saurabh Natu"]},
+    "PCC-302-TT": {"name": "Object Oriented Programming", "faculty": ["Prof. Gaurav Malode"]},
+    "PCC-303-TT": {"name": "Basics of Computer Network", "faculty": ["Prof. Harshal Chaudhari"]},
+    "OEL-201-TT": {"name": "Open Elective - I", "faculty": ["Prof. Dhairhi Tikale"]},
+    "DM-204-TT": {"name": "Digital Electronics and Logic Design", "faculty": ["Prof. Prabhina Patil"]},
+    "FEM-240-TT": {"name": "Principles of Management and Entrepreneurship", "faculty": ["Prof. Nitin Gulan"]},
+    "VEC-250-TT": {"name": "Universal Human Values", "faculty": ["Prof. Valdini Banerjee", "Dr. Jyoti Surve", "Dr. Bhavana Kanawade"]},
+    "EF-260-TT": {"name": "Community Engagement Project", "faculty": ["Prof. Sarang Saoji", "Prof. Sharda Thete", "Prof. Pratibha Patil"]}
+  },
+  "Faculty": [
+    {"name": "Prof. Kanchan Bhale", "username": "prof.kanchan.bhale", "password": "password", "divisions": ["ITA", "COMP-A"]},
+    {"name": "Prof. Monali Deshmukh", "username": "prof.monali.deshmukh", "password": "password", "divisions": ["ITA", "COMP-B"]},
+    {"name": "Prof. Saurabh Natu", "username": "prof.saurabh.natu", "password": "password", "divisions": ["ITA", "COMP-C"]},
+    {"name": "Prof. Gaurav Malode", "username": "prof.gaurav.malode", "password": "password", "divisions": ["ITA"]},
+    {"name": "Prof. Harshal Chaudhari", "username": "prof.harshal.chaudhari", "password": "password", "divisions": ["ITA"]},
+    {"name": "Prof. Dhairhi Tikale", "username": "prof.dhairhi.tikale", "password": "password", "divisions": ["ITA"]},
+    {"name": "Prof. Prabhina Patil", "username": "prof.prabhina.patil", "password": "password", "divisions": ["ITA"]},
+    {"name": "Prof. Nitin Gulan", "username": "prof.nitin.gulan", "password": "password", "divisions": ["ENTC"]},
+    {"name": "Prof. Valdini Banerjee", "username": "prof.valdini.banerjee", "password": "password", "divisions": ["ENTC"]},
+    {"name": "Dr. Jyoti Surve", "username": "dr.jyoti.surve", "password": "password", "divisions": ["ENTC"]},
+    {"name": "Dr. Bhavana Kanawade", "username": "dr.bhavana.kanawade", "password": "password", "divisions": ["ENTC"]},
+    {"name": "Prof. Sarang Saoji", "username": "prof.sarang.saoji", "password": "password", "divisions": ["COMP-A"]},
+    {"name": "Prof. Sharda Thete", "username": "prof.sharda.thete", "password": "password", "divisions": ["COMP-B"]},
+    {"name": "Prof. Pratibha Patil", "username": "prof.pratibha.patil", "password": "password", "divisions": ["COMP-C"]}
+  ]
+}
