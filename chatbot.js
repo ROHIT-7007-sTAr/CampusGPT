@@ -169,15 +169,18 @@
   // --- 5. Core Functions ---
   let timetableData = null;
   let facultyData = null;
+  let studentData = null;
 
   async function loadData() {
     try {
-      const [timetableRes, facultyRes] = await Promise.all([
+      const [timetableRes, facultyRes, studentRes] = await Promise.all([
         fetch('timetable.json'),
-        fetch('faculty.json')
+        fetch('faculty.json'),
+        fetch('itstudents.json')
       ]);
       timetableData = await timetableRes.json();
       facultyData = await facultyRes.json();
+      studentData = await studentRes.json();
     } catch (error) {
       console.error("Error loading data:", error);
     }
@@ -260,6 +263,14 @@
       }
     }
 
+    if (studentData) {
+      const birthdayResponse = await handleBirthdayQueries(lowered);
+      if (birthdayResponse) {
+        await addMessage(birthdayResponse, 'bot');
+        return;
+      }
+    }
+
     // ✨ New: Fallback to Gemini API with Typing Indicator
     await addMessage(`<div class="typing-indicator"><span></span><span></span><span></span></div>`, "bot", true);
     
@@ -325,6 +336,79 @@
     }
 
     return null; // No relevant query found
+  }
+
+  async function handleBirthdayQueries(query) {
+    if (!query.includes('birthday')) return null;
+
+    const today = new Date();
+
+    const parseDate = (dateStr) => {
+      const parts = dateStr.split(' ');
+      const day = parseInt(parts[0], 10);
+      const month = new Date(Date.parse(parts[1] +" 1, 2012")).getMonth();
+      const year = parseInt(parts[2], 10);
+      return new Date(year, month, day);
+    };
+
+    const getBirthdaysToday = () => {
+      return studentData.filter(student => {
+        const birthDate = parseDate(student['Birth Date']);
+        return birthDate.getDate() === today.getDate() && birthDate.getMonth() === today.getMonth();
+      });
+    };
+
+    const getBirthdaysThisWeek = () => {
+      const startOfWeek = new Date(today);
+      startOfWeek.setDate(today.getDate() - today.getDay());
+      const endOfWeek = new Date(startOfWeek);
+      endOfWeek.setDate(startOfWeek.getDate() + 6);
+
+      return studentData.filter(student => {
+        const birthDate = parseDate(student['Birth Date']);
+        const studentBirthdayThisYear = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+        return studentBirthdayThisYear >= startOfWeek && studentBirthdayThisYear <= endOfWeek;
+      });
+    };
+
+    const getBirthdaysThisMonth = () => {
+      return studentData.filter(student => {
+        const birthDate = parseDate(student['Birth Date']);
+        return birthDate.getMonth() === today.getMonth();
+      });
+    };
+
+    if (query.includes('today')) {
+      const students = getBirthdaysToday();
+      if (students.length > 0) {
+        const names = students.map(s => s['Student Name']).join(', ');
+        return `Today's birthdays: ${names}`;
+      } else {
+        return "No birthdays today.";
+      }
+    }
+
+    if (query.includes('this week')) {
+      const students = getBirthdaysThisWeek();
+      if (students.length > 0) {
+        const names = students.map(s => s['Student Name']).join(', ');
+        return `Birthdays this week: ${names}`;
+      } else {
+        return "No birthdays this week.";
+      }
+    }
+
+    if (query.includes('this month')) {
+      const students = getBirthdaysThisMonth();
+      if (students.length > 0) {
+        const names = students.map(s => s['Student Name']).join(', ');
+        return `Birthdays this month: ${names}`;
+      } else {
+        return "No birthdays this month.";
+      }
+    }
+
+    return "I can answer questions about birthdays today, this week, or this month. For example: 'Who has a birthday today?'";
   }
   
   loadData();

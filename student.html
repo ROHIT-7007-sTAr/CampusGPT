@@ -7,6 +7,47 @@
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/themes/dark.css">
+  <style>
+    .flatpickr-calendar {
+      width: 100% !important;
+      max-width: 100% !important;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    .flatpickr-innerContainer, .flatpickr-rContainer, .flatpickr-days, .dayContainer {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .flatpickr-day {
+      width: calc(100% / 7) !important;
+      max-width: calc(100% / 7) !important;
+      height: auto !important;
+    }
+    .flatpickr-day {
+      color: #cbd5e1; /* slate-300 */
+    }
+    .flatpickr-day.today {
+      border-color: #0ea5e9; /* sky-500 */
+    }
+    .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+      background: #0ea5e9; /* sky-500 */
+      border-color: #0ea5e9; /* sky-500 */
+    }
+    .flatpickr-weekday {
+      color: #94a3b8; /* slate-400 */
+    }
+    .flatpickr-month, .flatpickr-current-month {
+      color: #f1f5f9; /* slate-100 */
+    }
+    .flatpickr-prev-month, .flatpickr-next-month {
+      color: #94a3b8; /* slate-400 */
+    }
+    .flatpickr-prev-month:hover, .flatpickr-next-month:hover {
+      color: #0ea5e9; /* sky-500 */
+    }
+  </style>
   
   <!-- Firebase Scripts -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
@@ -20,7 +61,7 @@
         <h2 class="text-3xl font-bold text-white tracking-tight">Student Dashboard</h2>
         <p class="text-sky-300" id="studentNameDisp"></p>
       </div>
-      <button class="mt-4 sm:mt-0 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors" onclick="logoutStudent()">Logout</button>
+      <button class="mt-4 sm:mt-0 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors" onclick="logoutStudent()">Log Out</button>
     </header>
 
     <!-- Navigation Tabs -->
@@ -38,24 +79,39 @@
       <!-- Dashboard View -->
       <div id="dashboard-view">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="space-y-8">
-                <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10 text-center">
-                  <h3 class="text-xl font-bold text-white mb-2">Overall Attendance</h3>
-                  <p id="attendancePercent" class="text-6xl font-bold text-cyan-400">0%</p>
-                  <p id="attendanceRatio" class="text-slate-400 mt-1">Attended 0 of 0</p>
-                </div>
-                <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
-                    <h3 class="text-xl font-bold text-white mb-4">AI-Powered Study Plan</h3>
-                    <p class="text-slate-400 text-sm mb-4">Generate a personalized study plan based on recent project topics from the blog.</p>
-                    <button id="generatePlanBtn" class="w-full bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="generateStudyPlan()">✨ Generate from Blogs</button>
-                    <div id="studyPlanOutput" class="text-slate-300 whitespace-pre-wrap mt-4 p-4 bg-slate-900/50 rounded-lg min-h-[100px]"></div>
-                </div>
-            </div>
-          
-            <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
-              <h3 class="text-xl font-bold text-white mb-4">My Grades</h3>
-              <div id="gradesList" class="space-y-4 max-h-[34rem] overflow-auto pr-2"></div>
-            </div>
+          <!-- Column 1 -->
+          <div class="space-y-8">
+              <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10 text-center">
+                <h3 class="text-xl font-bold text-white mb-2">Overall Attendance</h3>
+                <p id="attendancePercent" class="text-6xl font-bold text-cyan-400">0%</p>
+                <p id="attendanceRatio" class="text-slate-400 mt-1">Attended 0 of 0</p>
+              </div>
+              <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                  <h3 class="text-xl font-bold text-white mb-4">My Grades</h3>
+                  <div id="gradesList" class="space-y-4 max-h-[34rem] overflow-auto pr-2"></div>
+              </div>
+              <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                  <h3 class="text-xl font-bold text-white mb-4">AI-Powered Study Plan</h3>
+                  <p class="text-slate-400 text-sm mb-4">Generate a personalized study plan based on recent project topics from the blog.</p>
+                  <button id="generatePlanBtn" class="w-full bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="generateStudyPlan()">✨ Generate from Blogs</button>
+                  <div id="studyPlanOutput" class="text-slate-300 whitespace-pre-wrap mt-4 p-4 bg-slate-900/50 rounded-lg min-h-[100px]"></div>
+              </div>
+          </div>
+          <!-- Column 2 -->
+          <div class="space-y-8">
+              <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                  <h3 class="text-xl font-bold text-white mb-4">Today's Timetable</h3>
+                  <div id="todays-timetable-container" class="space-y-2">
+                      <!-- Timetable will be injected here -->
+                  </div>
+              </div>
+              <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                  <h3 class="text-xl font-bold text-white mb-4">Today's Birthdays</h3>
+                  <div id="birthdays-container" class="space-y-2">
+                      <!-- Birthday names will be injected here -->
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
 
@@ -109,9 +165,19 @@
 
       <!-- Timetable View -->
       <div id="timetable-view" class="hidden">
-        <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
-            <h3 class="text-2xl font-bold text-white mb-4">Class Timetable</h3>
-            <div id="timetable-container" class="space-y-3"></div>
+        <div class="grid grid-cols-2 gap-8">
+          <div>
+            <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+              <h3 class="text-2xl font-bold text-white mb-4">Select a Date</h3>
+              <div id="calendar-container"></div>
+            </div>
+          </div>
+          <div>
+            <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+              <h3 class="text-2xl font-bold text-white mb-4">Timetable for <span id="selected-date"></span></h3>
+              <div id="daily-timetable-container" class="space-y-3"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -125,6 +191,7 @@
     </main>
   </div>
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
   <script src="gemini.js"></script>
   <script src="chatbot.js"></script>
   <script src="common.js"></script>

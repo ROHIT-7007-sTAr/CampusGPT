@@ -21,6 +21,27 @@ async function initStudent(){
   }
 }
 
+function formatSingleTime(timeStr) {
+    let [hours, minutes] = timeStr.split(':').map(s => parseInt(s, 10));
+    minutes = minutes || 0;
+    let ampm = 'am';
+
+    if (hours >= 1 && hours <= 7 || hours === 12) {
+        ampm = 'pm';
+    }
+
+    const minutesStr = minutes < 10 ? '0' + minutes : minutes;
+    return `${hours}:${minutesStr}${ampm}`;
+};
+
+function formatTime(timeStr) {
+    if (timeStr.includes('-')) {
+        const [startTime, endTime] = timeStr.split('-').map(s => s.trim());
+        return `${formatSingleTime(startTime)} - ${formatSingleTime(endTime)}`;
+    }
+    return formatSingleTime(timeStr);
+};
+
 async function loadStudentDashboard(){
   const student = await getStudent(currentUid);
   document.getElementById('studentNameDisp').textContent = student ? `Welcome, ${student.name || student.email}` : '';
@@ -62,34 +83,59 @@ async function loadStudentDashboard(){
   loadUpcomingTests();
   loadTimetable();
   loadFaculty();
+  loadTodaysBirthdays();
+  loadTodaysTimetable();
 }
 
 async function loadTimetable() {
-  const container = document.getElementById('timetable-container');
-  if (!container) return;
-  container.innerHTML = '<p class="text-slate-400 text-center">Loading timetable...</p>';
+  const calendarContainer = document.getElementById('calendar-container');
+  const dailyTimetableContainer = document.getElementById('daily-timetable-container');
+  const selectedDateEl = document.getElementById('selected-date');
+
+  if (!calendarContainer || !dailyTimetableContainer) return;
+
   try {
     const response = await fetch('timetable.json');
     const timetableData = await response.json();
     const timetable = timetableData.Timetable;
-    let html = '<table class="w-full text-sm text-left text-slate-400">'
-    html += '<thead class="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400"><tr><th scope="col" class="px-6 py-3">Day</th><th scope="col" class="px-6 py-3">Time</th><th scope="col" class="px-6 py-3">Subject</th></tr></thead><tbody>';
-    for (const day in timetable) {
-        timetable[day].forEach((item, index) => {
-            html += `<tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700">`;
-            if (index === 0) {
-                html += `<td rowspan="${timetable[day].length}" class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white">${day}</td>`;
-            }
-            html += `<td class="px-6 py-4">${item.time}</td>`;
-            html += `<td class="px-6 py-4">${item.subject}</td>`;
-            html += `</tr>`;
+
+    const displayTimetableForDay = (day) => {
+      const dayData = timetable[day];
+      if (dayData) {
+        let html = '<ul class="space-y-2">';
+        dayData.forEach(item => {
+          html += `<li class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                     <p class="font-bold text-white">${formatTime(item.time)}</p>
+                     <p class="text-slate-300">${item.subject}</p>
+                   </li>`;
         });
-    }
-    html += '</tbody></table>';
-    container.innerHTML = html;
+        html += '</ul>';
+        dailyTimetableContainer.innerHTML = html;
+      } else {
+        dailyTimetableContainer.innerHTML = '<p class="text-slate-400">No timetable for this day.</p>';
+      }
+    };
+
+    flatpickr(calendarContainer, {
+      inline: true,
+      dateFormat: "d/m/Y",
+      onChange: function(selectedDates, dateStr, instance) {
+        const selectedDate = selectedDates[0];
+        const dayOfWeek = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
+        selectedDateEl.textContent = dateStr;
+        displayTimetableForDay(dayOfWeek);
+      }
+    });
+
+    // Display timetable for today by default
+    const today = new Date();
+    const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+    selectedDateEl.textContent = today.toLocaleDateString('en-GB', { day:'2-digit', month:'2-digit', year:'numeric' });
+    displayTimetableForDay(dayOfWeek);
+
   } catch (err) {
     console.error("Error loading timetable:", err);
-    container.innerHTML = '<p class="text-red-400">Could not load timetable.</p>';
+    calendarContainer.innerHTML = '<p class="text-red-400">Could not load timetable data.</p>';
   }
 }
 
@@ -236,6 +282,71 @@ async function loadUpcomingTests() {
     }
 }
 
+
+async function loadTodaysTimetable() {
+  const container = document.getElementById('todays-timetable-container');
+  if (!container) return;
+
+  try {
+    const response = await fetch('timetable.json');
+    const timetableData = await response.json();
+    const timetable = timetableData.Timetable;
+    const today = new Date();
+    const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+    const dayData = timetable[dayOfWeek];
+
+    if (dayData) {
+      let html = '<ul class="space-y-2">';
+      dayData.forEach(item => {
+        html += `<li class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
+                   <p class="font-bold text-white">${formatTime(item.time)}</p>
+                   <p class="text-slate-300">${item.subject}</p>
+                 </li>`;
+      });
+      html += '</ul>';
+      container.innerHTML = html;
+    } else {
+      container.innerHTML = '<p class="text-slate-400">No classes today.</p>';
+    }
+  } catch (err) {
+    console.error("Error loading timetable data:", err);
+    container.innerHTML = '<p class="text-red-400">Could not load timetable data.</p>';
+  }
+}
+
+async function loadTodaysBirthdays() {
+  const container = document.getElementById('birthdays-container');
+  if (!container) return;
+
+  try {
+    const response = await fetch('itstudents.json');
+    const studentData = await response.json();
+    const today = new Date();
+
+    const parseDate = (dateStr) => {
+      const parts = dateStr.split(' ');
+      const day = parseInt(parts[0], 10);
+      const month = new Date(Date.parse(parts[1] +" 1, 2012")).getMonth();
+      const year = parseInt(parts[2], 10);
+      return new Date(year, month, day);
+    };
+
+    const birthdaysToday = studentData.filter(student => {
+      const birthDate = parseDate(student['Birth Date']);
+      return birthDate.getDate() === today.getDate() && birthDate.getMonth() === today.getMonth();
+    });
+
+    if (birthdaysToday.length > 0) {
+      const names = birthdaysToday.map(s => `<p class="text-slate-300">${s['Student Name']}</p>`).join('');
+      container.innerHTML = names;
+    } else {
+      container.innerHTML = '<p class="text-slate-400">No birthdays today.</p>';
+    }
+  } catch (err) {
+    console.error("Error loading birthday data:", err);
+    container.innerHTML = '<p class="text-red-400">Could not load birthday data.</p>';
+  }
+}
 
 function logoutStudent(){
   auth.signOut().finally(()=> {

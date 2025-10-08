@@ -2,7 +2,7 @@
 // This file centralizes calls to the Google Gemini API.
 
 // IMPORTANT: Replace with your actual Gemini API key.
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "AIzaSyAquroaVtKRjQ6vfbk8k9bzk9BoS_9KIpQ";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
 
 /**
@@ -13,19 +13,23 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 async function callGemini(prompt) {
   try {
     const payload = {
-      contents: [{
-        parts: [{
-          text: prompt
-        }]
-      }],
+      contents: [
+        {
+          parts: [
+            {
+              text: prompt,
+            },
+          ],
+        },
+      ],
     };
 
     const response = await fetch(API_URL, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
 
     if (!response.ok) {
@@ -35,13 +39,16 @@ async function callGemini(prompt) {
     }
 
     const result = await response.json();
-    if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts[0].text) {
+    if (
+      result.candidates &&
+      result.candidates.length > 0 &&
+      result.candidates[0].content.parts[0].text
+    ) {
       return result.candidates[0].content.parts[0].text;
     } else {
       // Handle cases where response might be blocked or empty
       return "I'm sorry, I couldn't generate a response for that. It might be due to safety settings.";
     }
-
   } catch (error) {
     console.error("Failed to call Gemini API:", error);
     return "An error occurred while contacting the AI model. Please check your API key and network connection.";

@@ -40,7 +40,20 @@
 
     /* Button styling with enhanced hover effects */
     .btn-submit {
-      @apply w-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white font-bold py-3 px-4 rounded-lg shadow-lg shadow-cyan-500/20 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-400/40 transition-all duration-300 ease-in-out;
+      background-color: #37bcf7;
+      color: white;
+      font-weight: bold;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease-in-out;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
   </style>
 </head>
@@ -122,11 +135,12 @@
               class="w-full pl-12 pr-4 py-3 bg-white border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-all duration-200 text-slate-700 placeholder-slate-400 invalid:border-red-500 invalid:ring-red-500"
               required>
               <option value="">Select Division</option>
-              <option value="ITA">ITA</option>
+              <option value="ITA">IT - A</option>
+              <option value="ITB">IT - B</option>
               <option value="ENTC">ENTC</option>
-              <option value="COMP-A">COMP-A</option>
-              <option value="COMP-B">COMP-B</option>
-              <option value="COMP-C">COMP-C</option>
+              <option value="COMP-A">COMP - A</option>
+              <option value="COMP-B">COMP - B</option>
+              <option value="COMP-C">COMP - C</option>
             </select>
           </div>
         </div>
@@ -136,13 +150,13 @@
         <div class="pt-4">
           <button class="btn-submit" onclick="handleLogin()">Login</button>
         </div>
-      </div>
 
-      <div class="text-center mt-8">
-        <p class="text-slate-400 text-sm">Don't have an account?
-          <a href="#" class="font-semibold text-sky-400 hover:text-sky-300 transition-colors"
-            onclick="handleSignup(event)">Sign Up</a>
-        </p>
+        <div class="text-center mt-8">
+          <p class="text-slate-400 text-sm">Don't have an account?
+            <a href="#" class="font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+              onclick="handleSignup(event)">Sign Up</a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
