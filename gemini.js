@@ -2,7 +2,7 @@
 // This file centralizes calls to the Google Gemini API.
 
 // IMPORTANT: Replace with your actual Gemini API key.
-const API_KEY = "AIzaSyAquroaVtKRjQ6vfbk8k9bzk9BoS_9KIpQ";
+const API_KEY = "YOUR_API_KEY";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
 
 /**
