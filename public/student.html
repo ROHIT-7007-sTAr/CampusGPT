@@ -75,7 +75,6 @@
         <button id="dashboard-nav" onclick="showStudentView('dashboard')" class="py-3 px-6 text-lg font-semibold text-white border-b-2 border-sky-500 transition-colors duration-300">Dashboard</button>
         <button id="upcoming-tests-nav" onclick="showStudentView('upcoming-tests')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Upcoming Tests</button>
         <button id="community-nav" onclick="showStudentView('community')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Community</button>
-        <button id="timetable-nav" onclick="showStudentView('timetable')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Timetable</button>
         <button id="faculty-nav" onclick="showStudentView('faculty')" class="py-3 px-6 text-lg font-semibold text-slate-400 border-b-2 border-transparent hover:text-white hover:border-sky-500/50 transition-colors duration-300">Faculty</button>
       </div>
     </div>
@@ -105,10 +104,12 @@
           <!-- Column 2 -->
           <div class="space-y-8">
               <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
-                  <h3 class="text-xl font-bold text-white mb-4">Today's Timetable</h3>
-                  <div id="todays-timetable-container" class="space-y-2">
-                      <!-- Timetable will be injected here -->
-                  </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Calendar</h3>
+                <div id="calendar-container"></div>
+              </div>
+              <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
+                  <h3 class="text-xl font-bold text-white mb-4">Timetable for <span id="selected-date"></span></h3>
+                  <div id="daily-timetable-container" class="space-y-3"></div>
               </div>
               <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
                   <h3 class="text-xl font-bold text-white mb-4">Today's Birthdays</h3>
@@ -168,23 +169,6 @@
         </div>
       </div>
 
-      <!-- Timetable View -->
-      <div id="timetable-view" class="hidden">
-        <div class="grid grid-cols-2 gap-8">
-          <div>
-            <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
-              <h3 class="text-2xl font-bold text-white mb-4">Select a Date</h3>
-              <div id="calendar-container"></div>
-            </div>
-          </div>
-          <div>
-            <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
-              <h3 class="text-2xl font-bold text-white mb-4">Timetable for <span id="selected-date"></span></h3>
-              <div id="daily-timetable-container" class="space-y-3"></div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- Faculty View -->
       <div id="faculty-view" class="hidden">
@@ -207,14 +191,12 @@
       document.getElementById('dashboard-view').classList.toggle('hidden', viewName !== 'dashboard');
       document.getElementById('upcoming-tests-view').classList.toggle('hidden', viewName !== 'upcoming-tests');
       document.getElementById('community-view').classList.toggle('hidden', viewName !== 'community');
-      document.getElementById('timetable-view').classList.toggle('hidden', viewName !== 'timetable');
       document.getElementById('faculty-view').classList.toggle('hidden', viewName !== 'faculty');
 
       // Get nav buttons
       const dashboardNav = document.getElementById('dashboard-nav');
       const upcomingTestsNav = document.getElementById('upcoming-tests-nav');
       const communityNav = document.getElementById('community-nav');
-      const timetableNav = document.getElementById('timetable-nav');
       const facultyNav = document.getElementById('faculty-nav');
 
       // Update styles for Dashboard tab
@@ -235,11 +217,6 @@
       communityNav.classList.toggle('text-slate-400', viewName !== 'community');
       communityNav.classList.toggle('border-transparent', viewName !== 'community');
 
-      // Update styles for Timetable tab
-      timetableNav.classList.toggle('text-white', viewName === 'timetable');
-      timetableNav.classList.toggle('border-sky-500', viewName === 'timetable');
-      timetableNav.classList.toggle('text-slate-400', viewName !== 'timetable');
-      timetableNav.classList.toggle('border-transparent', viewName !== 'timetable');
 
       // Update styles for Faculty tab
       facultyNav.classList.toggle('text-white', viewName === 'faculty');
