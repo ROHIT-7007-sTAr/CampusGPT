@@ -116,6 +116,20 @@ async function loadTimetable() {
       }
     };
 
+    const holidays = {
+      "15/08/2025": "Independence Day",
+      "27/08/2025": "Ganesh Chaturthi",
+      "02/10/2025": "Mahatma Gandhi Jayanti / Dussehra",
+      "20/10/2025": "Diwali Holiday",
+      "21/10/2025": "Diwali (Laxmi Poojan)",
+      "22/10/2025": "Diwali (Balipratipada)",
+      "23/10/2025": "Diwali (Bhaubij)",
+      "24/10/2025": "Diwali Holiday",
+      "25/10/2025": "Diwali Holiday",
+      "05/11/2025": "Gurunanak Jayanti",
+      "25/12/2025": "Christmas"
+    };
+
     flatpickr(calendarContainer, {
       inline: true,
       dateFormat: "d/m/Y",
@@ -124,6 +138,14 @@ async function loadTimetable() {
         const dayOfWeek = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
         selectedDateEl.textContent = dateStr;
         displayTimetableForDay(dayOfWeek);
+      },
+      onDayCreate: function(dObj, dStr, fp, dayElem) {
+        const date = dayElem.dateObj;
+        const dateString = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+        if (holidays[dateString]) {
+          dayElem.classList.add('holiday-date');
+          dayElem.title = holidays[dateString];
+        }
       }
     });
 
