@@ -1,0 +1,387 @@
+[
+  {
+    "Student Name": "ALI TAUFIK MUSTAK",
+    "Birth Date": "25 Apr 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "ATTAR JEBA SALLAUDDIN",
+    "Birth Date": "01 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "AWATE GAYATRI RAMESH",
+    "Birth Date": "05 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BAJAJ RISHIKESH SACHIN",
+    "Birth Date": "22 Oct 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BENDKOLI RUSHIKESH BALU",
+    "Birth Date": "13 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHADVANKAR AVISHKAR RAMCHANDRA",
+    "Birth Date": "05 Jan 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHALERAO SIDDHANT SANJEEV",
+    "Birth Date": "11 Mar 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHAMARE VEDANT SANJAY",
+    "Birth Date": "22 Oct 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHOJE AVADHUT SAGAR",
+    "Birth Date": "01 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHUNJE SWANAND AMIT",
+    "Birth Date": "01 Jun 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHUTE ANURAG SACHIN",
+    "Birth Date": "27 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "CHARATE BHAKTI VIJAY",
+    "Birth Date": "26 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "CHOBE AMARSINH SHIVAJI",
+    "Birth Date": "28 Mar 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DAHIBHATE HIMANSHU ANIL",
+    "Birth Date": "11 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DALAL SWETA LIMBANNA",
+    "Birth Date": "20 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DHAMALE SARTHAK SANTOSH",
+    "Birth Date": "03 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DHIRAJ KUMAR",
+    "Birth Date": "18 Mar 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "GADAD ADITYA SANGAMESH",
+    "Birth Date": "18 Sep 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "GANJAVE KOMAL ARJUN",
+    "Birth Date": "23 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "GIRASE RUCHIRA DARBARSING",
+    "Birth Date": "27 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "JADHAV VEDANT SANTOSH",
+    "Birth Date": "03 Apr 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "JANGLEY ANSHUL MRITYUNJAY",
+    "Birth Date": "29 Oct 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KALBURGI PRIYAL UMESH",
+    "Birth Date": "29 Nov 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KALE VARUN MAHENDRA",
+    "Birth Date": "07 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KALMANI SHARAD CHANDRAKANT",
+    "Birth Date": "11 Feb 2007",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KHADKIKAR BHUPESH ANIL",
+    "Birth Date": "12 Feb 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KHOBRAGADE MITHIL JAYCHAND",
+    "Birth Date": "10 Oct 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KOLI SWARADA VINITKUMAR",
+    "Birth Date": "18 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KULKARNI ABHISHEK BHAGAVANTRAY",
+    "Birth Date": "28 Jul 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MALI VAIDEHI NILESH",
+    "Birth Date": "14 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MANGATE YUGRAJ PRABHAKAR",
+    "Birth Date": "30 Dec 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MARNE ATHARVA BHARAT",
+    "Birth Date": "19 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "METHE KULDEEP SANJAY",
+    "Birth Date": "28 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MHASKE SAMRUDDHI BHAUSAНЕВ",
+    "Birth Date": "07 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MISAL NEERAJ SIDDHARTH",
+    "Birth Date": "20 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MORE PRANJALI RAVINDRA",
+    "Birth Date": "18 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MORE YASH SHRIKANT",
+    "Birth Date": "25 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "NAKHALE AYUSH HARICHANDRA",
+    "Birth Date": "13 Feb 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "NERE HARSHITA PANKAJ",
+    "Birth Date": "28 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "NIMSE PRAJWAL VILAS",
+    "Birth Date": "24 Aug 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "NIRMAL ADITI SANTOSH",
+    "Birth Date": "12 Mar 2007",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PADGILWAR SANSKAR RAJKUMAR",
+    "Birth Date": "09 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PANDAV RUSHIKESH BHARAT",
+    "Birth Date": "22 Jul 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATEL VEER NARENDRA",
+    "Birth Date": "08 Nov 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATIL ABHISHEK SHITAL",
+    "Birth Date": "06 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATIL BHARGAVI DEVIDAS",
+    "Birth Date": "16 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATIL SHRUSHTI BHIMGONDA",
+    "Birth Date": "30 Oct 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATIL SUJAL RAJARAM",
+    "Birth Date": "19 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATTAN ATHARVA SHASHIKANT",
+    "Birth Date": "22 Sep 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RAJPUT MOHIT VIKRAM",
+    "Birth Date": "05 Feb 2007",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RANGANKAR KRUSHNA SUNIL",
+    "Birth Date": "27 Jul 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RASAVE SHIVAM ANIL",
+    "Birth Date": "07 Dec 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RAUT SAKSHI SANDEEP",
+    "Birth Date": "10 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RAWOOL RIDDHI ARUN",
+    "Birth Date": "01 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RAYAN REHAN SIDDIQUI",
+    "Birth Date": "07 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SALUNKE YASHWARDHAN AMIT",
+    "Birth Date": "23 Apr 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SAVALWADE ADITYA AJAY",
+    "Birth Date": "11 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SHAIKH SOHA NAJMUDDIN",
+    "Birth Date": "14 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SHETE SANIKA NITIN",
+    "Birth Date": "16 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SHIMPLE ADITYA MOHAN",
+    "Birth Date": "18 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SHRISH RAY",
+    "Birth Date": "21 Aug 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SINGH SURAJ RAJESH",
+    "Birth Date": "10 Oct 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "VIDHU VERMA",
+    "Birth Date": "12 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "WAGHMARE APURVA SHRIRAM",
+    "Birth Date": "28 Nov 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "YATNALKAR ADITI SUHAS",
+    "Birth Date": "20 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "ZENDE SHUBHAM MACHHINDRA",
+    "Birth Date": "02 Nov 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "AUTI SAMRUDDHI RAMDAS",
+    "Birth Date": "12 Oct 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DHUMAL VAISHNAVI PANDURANG",
+    "Birth Date": "04 Jun 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "JAWALE HARSHAL RAMCHANDRA",
+    "Birth Date": "22 Feb 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KHANDARE DIVYA DATTATRYA",
+    "Birth Date": "05 Jun 2002",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MAHAJAN SANIYA BHASKAR",
+    "Birth Date": "05 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MULE SHIVAM YOGESHWAR",
+    "Birth Date": "31 Mar 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATEL MUKUL VINOD",
+    "Birth Date": "28 Oct 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SURWASE YASH TANAJI",
+    "Birth Date": "05 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "TAKKALAKI NIKITA SHARNABASAPPA",
+    "Birth Date": "10 Dec 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "TOSHNIWAL PRATIKSHA RAMNARAYAN",
+    "Birth Date": "02 Sep 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "TUPE KRISHNA MAKARAND",
+    "Birth Date": "29 May 2005",
+    "Department": "ENTC"
+  }
+]

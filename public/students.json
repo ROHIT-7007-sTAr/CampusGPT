@@ -1,0 +1,2322 @@
+[
+  {
+    "Student Name": " MEERA ARAVINDAKSHAN",
+    "Birth Date": "06 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "AHUJA NAMRATA NARESH",
+    "Birth Date": "05 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "AKADE VEDANT JITENDRA",
+    "Birth Date": "23 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "AKOLKAR SAMISH VIVEKANAND",
+    "Birth Date": "24 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "ANDHALE HARSHAL RAMDAS",
+    "Birth Date": "18 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "ANKIT KUMAR",
+    "Birth Date": "17 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "ANKIT KUMAR YADAV",
+    "Birth Date": "30 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "AWARE DUSHYANT UJJWAL",
+    "Birth Date": "27 Dec 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BACHPAI PRATHAMESH GIRISH",
+    "Birth Date": "21 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BANTHIYA MANASVI SACHIN KIRAN",
+    "Birth Date": "23 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BASUTKAR ANUJ ANAND",
+    "Birth Date": "18 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BHAD PARTH OMPRAKASH",
+    "Birth Date": "23 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BHANDERI MAITRY NILESH",
+    "Birth Date": "19 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BHAWARI AMOL ANIL",
+    "Birth Date": "09 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BHISTANNAVAR VINAY ONKAR",
+    "Birth Date": "08 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BHOIR NIRMIT KISHOR",
+    "Birth Date": "10 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BHOSALE RUTUJA KISHOR",
+    "Birth Date": "06 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BHOSALE SRUSHTI RAJKUMAR",
+    "Birth Date": "05 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BODKE ATHARVA SANJAY",
+    "Birth Date": "28 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BORSE UNMESH JITENDRA",
+    "Birth Date": "23 Mar 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "CHAUDHARI NISHA SARDARMAL",
+    "Birth Date": "25 Nov 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "CHAUHAN DHIRAJ PREMENDRAKUMAR",
+    "Birth Date": "07 Nov 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "CHAUHAN FALGUN PREMENDRAKUMAR",
+    "Birth Date": "07 Nov 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "CHAVAN ANIMESH RAMAKANT",
+    "Birth Date": "15 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "CHOUDHARI SAHIL SANDIP",
+    "Birth Date": "20 Aug 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "CHOUDHARY HARISH JITARAM",
+    "Birth Date": "16 Apr 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DAKHORE ROHAN DHARMENDRA",
+    "Birth Date": "12 Feb 2004",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DEORE MANAS JITENDRA",
+    "Birth Date": "06 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DEORE RUTUJA SHARAD",
+    "Birth Date": "05 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DESHMUKH SIDDHANT PRASHANT",
+    "Birth Date": "01 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DESHPANDE RAJAS VINAY",
+    "Birth Date": "17 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DHANGUDE PRATIK NAMDEO",
+    "Birth Date": "24 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DHENDE MRUGESH DAULAT",
+    "Birth Date": "15 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DHODI KRUTIKA RAJESH",
+    "Birth Date": "08 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DUMBRE ANJALI RAHUL",
+    "Birth Date": "23 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DUSAD VEDIKA DURGADAS",
+    "Birth Date": "07 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "FATANGADE KARTIK SANDEEP",
+    "Birth Date": "27 Nov 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "FIRDOUSI FAIZAN SHAKEEL AHMED",
+    "Birth Date": "24 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "FULTAMBKAR OM PRABHAKAR",
+    "Birth Date": "10 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GABALE SAMRUDDHI ANIL",
+    "Birth Date": "11 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GADADHE BALAJI SANTOSH",
+    "Birth Date": "24 Sep 2003",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GADEKAR MAYUR UTTAM",
+    "Birth Date": "29 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GADGE SANSKRUTI ASHOK",
+    "Birth Date": "03 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GADGE TANMAY BANSI",
+    "Birth Date": "21 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GAIKWAD MADHAVI YOGESH",
+    "Birth Date": "28 Jan 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GAIKWAD PRATHAMESH VITTHAL",
+    "Birth Date": "16 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GAIKWAD SURAJ NANASAHEB",
+    "Birth Date": "13 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GANJAVE ATHARVA ANIL",
+    "Birth Date": "19 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GAVALE ROHAN SANDEEP",
+    "Birth Date": "03 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GHANWAT GAURAV SURESH",
+    "Birth Date": "02 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GHOLAVE VEDANT SANTOSH",
+    "Birth Date": "13 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GHORPADE ADITYA PANDURANG",
+    "Birth Date": "09 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GIDWANI HITEN HARESH",
+    "Birth Date": "17 Sep 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GIRIYAL CHAITANYA JAGADISH",
+    "Birth Date": "20 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GORE SHRUTI DADASAHEB",
+    "Birth Date": "17 Dec 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GORINTALA AAVNIKA GANESH",
+    "Birth Date": "07 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GOSAVI JANVI VINOD",
+    "Birth Date": "02 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GUMGAONKAR HARSHWARDHAN VINOD",
+    "Birth Date": "10 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "HAPSE PRAJAKTA SACHIN",
+    "Birth Date": "07 Sep 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "HARDIK PANDEY",
+    "Birth Date": "21 Mar 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "HINGANKAR SARTHAK DASHARATH",
+    "Birth Date": "17 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "HINGMIRE NIHAL CHARANKUMAR",
+    "Birth Date": "24 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "HINUKALE SAKSHI SANTOSH",
+    "Birth Date": "02 Sep 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "INAMDAR AMAN ANSAR",
+    "Birth Date": "05 Apr 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "INDURE KRUSHNA KIRAN",
+    "Birth Date": "04 Mar 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JACHAK ARYAN ANIRUDDHA",
+    "Birth Date": "18 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JADHAV DINESH SANTOSH",
+    "Birth Date": "05 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JADHAV SAYALI SHARAD",
+    "Birth Date": "15 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JADHAV VEDANT VISHWAS",
+    "Birth Date": "05 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JAGTAP BHAKTI PRAVIN",
+    "Birth Date": "24 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JAIN SAUMYA SACHIN",
+    "Birth Date": "08 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JAYANT SHRIVASTAVA",
+    "Birth Date": "14 Jul 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JOSHI SHREYA MAHENDRA",
+    "Birth Date": "21 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JOSHI SIDDHI JAYANT",
+    "Birth Date": "05 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JUNNARKAR GAURAV MANISH",
+    "Birth Date": "22 Nov 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KABADE KETAN DUSHYANT",
+    "Birth Date": "02 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KADAM ABHINAV ASHOK",
+    "Birth Date": "02 Aug 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KAKADE GAURAV GANESH",
+    "Birth Date": "11 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KAKADE RAJESH KISAN",
+    "Birth Date": "20 Jul 2003",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KALANTRE PARAM DHANANJAY",
+    "Birth Date": "31 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KALBANDE ABHISHEK RAMESHWAR",
+    "Birth Date": "19 Jan 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KALE YASHASHREE SANTOSH",
+    "Birth Date": "30 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KAMBLE PRATIK DASHRATH",
+    "Birth Date": "06 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KANADE RAKSHITA AJIT",
+    "Birth Date": "12 Sep 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KARANJKAR GAYATRI SANJAY",
+    "Birth Date": "28 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KARPE VED ANIL",
+    "Birth Date": "06 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KEDAR VIVEK ARUN",
+    "Birth Date": "12 Jan 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KHADKE ABHAY BALU",
+    "Birth Date": "17 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KHAIRNAR VED PRAVIN",
+    "Birth Date": "17 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KHAN MOHAMMED AMAN MOHAMMED ABID",
+    "Birth Date": "27 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KHANDKAR ADITI EKNATH",
+    "Birth Date": "11 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KHEDEKAR OM GAURAV",
+    "Birth Date": "06 Sep 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KHILLARE GAURAV RAHUL",
+    "Birth Date": "10 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KONDEKAR AVANTI ARJUN",
+    "Birth Date": "22 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KUDI DIVYA BIRMARAM",
+    "Birth Date": "08 Apr 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KULKARNI ANAND GANESH",
+    "Birth Date": "19 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "LABHADE ARYAN HEMANT",
+    "Birth Date": "14 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "LATARE PRANJAL ASHOK",
+    "Birth Date": "31 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "LAVHALE ADITYA BHARAT",
+    "Birth Date": "16 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "LAWAND PRANAV RAJESH",
+    "Birth Date": "16 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "LUNAWAT SHRAVAN DEVENDRA",
+    "Birth Date": "16 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MADKI PIYUSH AMIT",
+    "Birth Date": "26 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MAHAPATRA SANTOSH DAYNIDHI",
+    "Birth Date": "29 Jun 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MAKWAN PRATHMESH KIRAN",
+    "Birth Date": "04 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MALGAVE ATUL UTTAM",
+    "Birth Date": "22 Feb 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MALKAR PALAK KRISHNA",
+    "Birth Date": "17 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MANE ARYAN RAHUL",
+    "Birth Date": "16 Dec 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MANE ASHWINI PRADIP",
+    "Birth Date": "17 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MANE PAYAL RANJIT",
+    "Birth Date": "19 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MANJARE SADASHIV BASAVRAJ",
+    "Birth Date": "14 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MANTE SANCHITA SUBHASH",
+    "Birth Date": "15 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MARATHE ANUSHKA YOGESH",
+    "Birth Date": "21 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MISAL DNYANSAGAR SUBHASH",
+    "Birth Date": "09 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MOGAL NIRAJ BAJIRAO",
+    "Birth Date": "11 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MOHATA SALONI MANOJ",
+    "Birth Date": "17 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MORE KIMAYA KIRAN",
+    "Birth Date": "25 Mar 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MORE SIDDHI SANDIP",
+    "Birth Date": "03 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MUKDAM ADITYA HANMANT",
+    "Birth Date": "26 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MULLA ALFIYA IBRAHIM",
+    "Birth Date": "23 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "NAIKADE NIDHI NITIN",
+    "Birth Date": "13 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "NALBALWAR ATHARV DNYANESHWAR",
+    "Birth Date": "10 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "NATHANI CHANCHAL SUNIL",
+    "Birth Date": "26 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "NEHE MANAS GORAKSHNATH",
+    "Birth Date": "05 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "NIKAM VEDANT SANJAY",
+    "Birth Date": "02 Jul 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "NIPHADE NEHA PRABHAKAR",
+    "Birth Date": "08 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PAGAR SARTHAK RAJESH",
+    "Birth Date": "11 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PAHADE SAMIKSHA SANJAY",
+    "Birth Date": "21 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PAIKRAO PIYUSH RAJESH",
+    "Birth Date": "11 Apr 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PALKRUTWAR HARSH RAHUL",
+    "Birth Date": "16 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PANDHARE SHREYA SANJAY",
+    "Birth Date": "13 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATEL POOJA HARIRAM",
+    "Birth Date": "28 Aug 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATEL SALMAN AJAM",
+    "Birth Date": "20 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATHAN ARSALAAN KHAN JAWED KHAN",
+    "Birth Date": "01 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL GARGI GIRISH",
+    "Birth Date": "26 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL HARSHAL SUNIL",
+    "Birth Date": "22 Feb 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL HARSHWARDHAN RAHUL",
+    "Birth Date": "01 Feb 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL HIMANI BRIJLAL",
+    "Birth Date": "17 Sep 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL ISHA SUDANSING",
+    "Birth Date": "16 Nov 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL KETAN RAJVIJAY",
+    "Birth Date": "13 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL MOHIT NITIN",
+    "Birth Date": "24 Nov 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL PRANAV PRAVIN",
+    "Birth Date": "05 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL PRERANA PRASHANT",
+    "Birth Date": "15 Jan 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL PRIYADARSHINI SANTOSH",
+    "Birth Date": "18 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL PRUTHVIRAJ POPAT",
+    "Birth Date": "18 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL SANKALP SANJAY",
+    "Birth Date": "20 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL SHIVRAJ PRAVIN",
+    "Birth Date": "09 Jun 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL SHRUTI SUNIL",
+    "Birth Date": "11 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL VIVEK DHARMAKANT",
+    "Birth Date": "31 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL VIVEK SHANKAR",
+    "Birth Date": "23 Oct 2004",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PAWAR SHIVAM MAROTI",
+    "Birth Date": "24 Mar 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PAWAR TANISHKA SANDEEP",
+    "Birth Date": "22 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PENDOR POOJA VIJAY",
+    "Birth Date": "26 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PINGALE VAISHNAVI YASHWANT",
+    "Birth Date": "04 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "POKALE AMAN MAHENDRA",
+    "Birth Date": "27 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "POL SARVESH SANTOSH",
+    "Birth Date": "27 Dec 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "POL SUYASH SANTOSH",
+    "Birth Date": "28 Jul 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "RAJPUT ADITI SHARADSING",
+    "Birth Date": "15 Nov 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "RATHORE PRAKHAR ALOK",
+    "Birth Date": "01 Jul 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "RAUT MRUNAL TEJKUMAR",
+    "Birth Date": "24 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "RAUT NILESH PRAKASH",
+    "Birth Date": "26 Jan 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "REKHI VIPUL PRAVIN",
+    "Birth Date": "17 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "RENGE KSHITIJ GULABRAO",
+    "Birth Date": "11 Aug 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "RISHUL REWOO",
+    "Birth Date": "08 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "ROHANI DAKSH VINOD",
+    "Birth Date": "05 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SALUNKHE SIDDHI VIJAYKUMAR",
+    "Birth Date": "04 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SANGAVE ARYAN SUDHIR",
+    "Birth Date": "01 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SARTHAK DESHMUKH",
+    "Birth Date": "03 Oct 2004",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SARTHAK SINGH",
+    "Birth Date": "30 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SAVALWADE OMKAR AJAY",
+    "Birth Date": "11 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHAIKH ABDULSAMAD SALIM",
+    "Birth Date": "24 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHAIKH IMRAN PAIGAMBAR",
+    "Birth Date": "01 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHAIKH MOINODDIN MUNIRODDIN",
+    "Birth Date": "06 Feb 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHARMA GOVIND CHETAN",
+    "Birth Date": "03 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHARMA PRIYAL OMPRAKASH",
+    "Birth Date": "04 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHELKE ANUSHKA SANJAY",
+    "Birth Date": "10 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHENDGE VEDANT BAPU",
+    "Birth Date": "22 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHEVATE NACHIKET JAYANT",
+    "Birth Date": "20 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHINDE DHAIRYASHIL DEEPAK",
+    "Birth Date": "06 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHINDE PRIYA SUNIL",
+    "Birth Date": "01 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHINDE RAVIRAJ LALU",
+    "Birth Date": "27 Jul 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHIRKE NIKHIL SANJAY",
+    "Birth Date": "19 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHIRORE DARSHAN SATISH",
+    "Birth Date": "23 Sep 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHITOLE NINAD SOMNATH",
+    "Birth Date": "21 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SIKWAL ANUJ GANESH",
+    "Birth Date": "07 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SOLANKE ADITYA CHANDRAKANT",
+    "Birth Date": "06 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SONAWANE JUI PRAVINKUMAR",
+    "Birth Date": "29 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SONI KANISHKA MANISH",
+    "Birth Date": "22 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SURADKAR SANCHIT UDAY",
+    "Birth Date": "20 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SURVE JANHAVI ARUN",
+    "Birth Date": "01 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SURYAWANSHI ABHIJEET KERBA",
+    "Birth Date": "10 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SURYAWANSHI SANIKA VIKAS",
+    "Birth Date": "22 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "TAMBE ARYAN SHARAD",
+    "Birth Date": "08 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "TARGE ADITYA DNYANESHWAR",
+    "Birth Date": "29 Aug 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "TAYADE NIKHIL RAJESH",
+    "Birth Date": "09 Jun 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "THAKARE YASH SAMADHAN",
+    "Birth Date": "16 Aug 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "THITE DHANESH DEVIDAS",
+    "Birth Date": "27 Jul 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "THORAT TUSHAR SANTOSH",
+    "Birth Date": "31 Oct 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "TIDKE ATHARVA JAWAHAR",
+    "Birth Date": "23 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "UKHANDE AKASH GOROBA",
+    "Birth Date": "26 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "VALLURUPALLI SAI HARSHITHA MURALI MOHAN",
+    "Birth Date": "01 Mar 2007",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "VARAT RAHUL SHANKAR",
+    "Birth Date": "15 Feb 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "VYAS KSHITIJ VIVEK",
+    "Birth Date": "19 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "WAINGADE HARSHRAJ SANJAYKUMAR",
+    "Birth Date": "31 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "WANVE ATHARVA KIRANKUMAR",
+    "Birth Date": "08 Dec 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "WAVHAL ANKITA BAPU",
+    "Birth Date": "24 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "YEOLE MANASVI MANOJ",
+    "Birth Date": "30 Mar 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "AFAR SAGAR SACHIN",
+    "Birth Date": "28 Aug 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "AHIRE SAMYAK PRAVIN",
+    "Birth Date": "24 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BHAURKAR SAMARTH KIRAN",
+    "Birth Date": "01 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BIDAVE FALGUNI SANJAY",
+    "Birth Date": "13 Sep 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "BOBALADE AJINKYA BHARAT",
+    "Birth Date": "19 Jun 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "CHANDORE VEENITA VINOD",
+    "Birth Date": "18 Jul 2004",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DESAI SHARVARI RAMESH",
+    "Birth Date": "04 Nov 2004",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "DEVKAR SHRIKANT ABASAHEB",
+    "Birth Date": "25 Jun 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GAYAKWAD DEVYANI KISHOR",
+    "Birth Date": "11 Mar 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GHOTKAR SACHIN DAGADU",
+    "Birth Date": "26 Jul 2003",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GOSAVI SHRADDHA PRAMOD",
+    "Birth Date": "26 Jan 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GULVE NANDINI NAVNATH",
+    "Birth Date": "28 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "GURAV MADHAVI SANJAY",
+    "Birth Date": "05 Sep 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JAGTAP DINESH ANIL",
+    "Birth Date": "12 Mar 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JAIN OJAS PRAVIN",
+    "Birth Date": "20 Oct 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "JALAPUR MEGHA BASAVARAJ",
+    "Birth Date": "19 Jan 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KANAKI VARUN BALAJI",
+    "Birth Date": "24 Dec 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "KHAIRNAR MAYUR DIWAKAR",
+    "Birth Date": "07 May 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "MASKE ABHISHEK SUNIL",
+    "Birth Date": "15 Dec 2004",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PAHANPATE NIKHIL RAJU",
+    "Birth Date": "01 May 2004",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATHARWAT ADITYA UTTAM",
+    "Birth Date": "16 Feb 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL SRUSHTI SHRIRAM",
+    "Birth Date": "08 Jun 2004",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PATIL TEJASWINI DILIP",
+    "Birth Date": "03 Apr 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "PAWAR NILESH BAPUSAHEB",
+    "Birth Date": "11 Sep 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SHINDE BHOOMI RAMESH",
+    "Birth Date": "11 Jun 2005",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "SURWASE DHIRAJ DHANAJI",
+    "Birth Date": "17 Dec 2003",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "TADME PRADIP SANJAY",
+    "Birth Date": "15 Nov 2006",
+    "Department": "Computer"
+  },
+  {
+    "Student Name": "ALI TAUFIK MUSTAK",
+    "Birth Date": "25 Apr 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "ATTAR JEBA SALLAUDDIN",
+    "Birth Date": "01 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "AWATE GAYATRI RAMESH",
+    "Birth Date": "05 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BAJAJ RISHIKESH SACHIN",
+    "Birth Date": "22 Oct 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BENDKOLI RUSHIKESH BALU",
+    "Birth Date": "13 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHADVANKAR AVISHKAR RAMCHANDRA",
+    "Birth Date": "05 Jan 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHALERAO SIDDHANT SANJEEV",
+    "Birth Date": "11 Mar 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHAMARE VEDANT SANJAY",
+    "Birth Date": "22 Oct 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHOJE AVADHUT SAGAR",
+    "Birth Date": "01 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHUNJE SWANAND AMIT",
+    "Birth Date": "01 Jun 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "BHUTE ANURAG SACHIN",
+    "Birth Date": "27 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "CHARATE BHAKTI VIJAY",
+    "Birth Date": "26 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "CHOBE AMARSINH SHIVAJI",
+    "Birth Date": "28 Mar 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DAHIBHATE HIMANSHU ANIL",
+    "Birth Date": "11 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DALAL SWETA LIMBANNA",
+    "Birth Date": "20 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DHAMALE SARTHAK SANTOSH",
+    "Birth Date": "03 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DHIRAJ KUMAR",
+    "Birth Date": "18 Mar 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "GADAD ADITYA SANGAMESH",
+    "Birth Date": "18 Sep 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "GANJAVE KOMAL ARJUN",
+    "Birth Date": "23 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "GIRASE RUCHIRA DARBARSING",
+    "Birth Date": "27 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "JADHAV VEDANT SANTOSH",
+    "Birth Date": "03 Apr 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "JANGLEY ANSHUL MRITYUNJAY",
+    "Birth Date": "29 Oct 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KALBURGI PRIYAL UMESH",
+    "Birth Date": "29 Nov 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KALE VARUN MAHENDRA",
+    "Birth Date": "07 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KALMANI SHARAD CHANDRAKANT",
+    "Birth Date": "11 Feb 2007",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KHADKIKAR BHUPESH ANIL",
+    "Birth Date": "12 Feb 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KHOBRAGADE MITHIL JAYCHAND",
+    "Birth Date": "10 Oct 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KOLI SWARADA VINITKUMAR",
+    "Birth Date": "18 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KULKARNI ABHISHEK BHAGAVANTRAY",
+    "Birth Date": "28 Jul 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MALI VAIDEHI NILESH",
+    "Birth Date": "14 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MANGATE YUGRAJ PRABHAKAR",
+    "Birth Date": "30 Dec 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MARNE ATHARVA BHARAT",
+    "Birth Date": "19 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "METHE KULDEEP SANJAY",
+    "Birth Date": "28 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MHASKE SAMRUDDHI BHAUSAНЕВ",
+    "Birth Date": "07 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MISAL NEERAJ SIDDHARTH",
+    "Birth Date": "20 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MORE PRANJALI RAVINDRA",
+    "Birth Date": "18 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MORE YASH SHRIKANT",
+    "Birth Date": "25 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "NAKHALE AYUSH HARICHANDRA",
+    "Birth Date": "13 Feb 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "NERE HARSHITA PANKAJ",
+    "Birth Date": "28 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "NIMSE PRAJWAL VILAS",
+    "Birth Date": "24 Aug 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "NIRMAL ADITI SANTOSH",
+    "Birth Date": "12 Mar 2007",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PADGILWAR SANSKAR RAJKUMAR",
+    "Birth Date": "09 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PANDAV RUSHIKESH BHARAT",
+    "Birth Date": "22 Jul 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATEL VEER NARENDRA",
+    "Birth Date": "08 Nov 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATIL ABHISHEK SHITAL",
+    "Birth Date": "06 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATIL BHARGAVI DEVIDAS",
+    "Birth Date": "16 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATIL SHRUSHTI BHIMGONDA",
+    "Birth Date": "30 Oct 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATIL SUJAL RAJARAM",
+    "Birth Date": "19 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATTAN ATHARVA SHASHIKANT",
+    "Birth Date": "22 Sep 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RAJPUT MOHIT VIKRAM",
+    "Birth Date": "05 Feb 2007",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RANGANKAR KRUSHNA SUNIL",
+    "Birth Date": "27 Jul 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RASAVE SHIVAM ANIL",
+    "Birth Date": "07 Dec 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RAUT SAKSHI SANDEEP",
+    "Birth Date": "10 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RAWOOL RIDDHI ARUN",
+    "Birth Date": "01 Feb 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "RAYAN REHAN SIDDIQUI",
+    "Birth Date": "07 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SALUNKE YASHWARDHAN AMIT",
+    "Birth Date": "23 Apr 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SAVALWADE ADITYA AJAY",
+    "Birth Date": "11 Aug 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SHAIKH SOHA NAJMUDDIN",
+    "Birth Date": "14 May 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SHETE SANIKA NITIN",
+    "Birth Date": "16 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SHIMPLE ADITYA MOHAN",
+    "Birth Date": "18 Mar 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SHRISH RAY",
+    "Birth Date": "21 Aug 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SINGH SURAJ RAJESH",
+    "Birth Date": "10 Oct 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "VIDHU VERMA",
+    "Birth Date": "12 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "WAGHMARE APURVA SHRIRAM",
+    "Birth Date": "28 Nov 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "YATNALKAR ADITI SUHAS",
+    "Birth Date": "20 Jun 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "ZENDE SHUBHAM MACHHINDRA",
+    "Birth Date": "02 Nov 2006",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "AUTI SAMRUDDHI RAMDAS",
+    "Birth Date": "12 Oct 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "DHUMAL VAISHNAVI PANDURANG",
+    "Birth Date": "04 Jun 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "JAWALE HARSHAL RAMCHANDRA",
+    "Birth Date": "22 Feb 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "KHANDARE DIVYA DATTATRYA",
+    "Birth Date": "05 Jun 2002",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MAHAJAN SANIYA BHASKAR",
+    "Birth Date": "05 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "MULE SHIVAM YOGESHWAR",
+    "Birth Date": "31 Mar 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "PATEL MUKUL VINOD",
+    "Birth Date": "28 Oct 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "SURWASE YASH TANAJI",
+    "Birth Date": "05 Sep 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "TAKKALAKI NIKITA SHARNABASAPPA",
+    "Birth Date": "10 Dec 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "TOSHNIWAL PRATIKSHA RAMNARAYAN",
+    "Birth Date": "02 Sep 2004",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "TUPE KRISHNA MAKARAND",
+    "Birth Date": "29 May 2005",
+    "Department": "ENTC"
+  },
+  {
+    "Student Name": "ABHANG ATHARV CHANDRASHEKHAR",
+    "Birth Date": "18 Nov 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "ABHISHEKH KUMAR MONDAL",
+    "Birth Date": "15 Oct 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "ADLINGE SAMRUDDHI DEVIDAS",
+    "Birth Date": "11 Jun 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "AHERKAR ANUJ AJIT",
+    "Birth Date": "10 Apr 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "AMANDEEP INDOLIYA..",
+    "Birth Date": "15 Nov 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "AMBARE ADITYA TUSHAR",
+    "Birth Date": "15 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "ARUDE ISHA SHANKAR",
+    "Birth Date": "25 Jun 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "AYUSH ROHILLA..",
+    "Birth Date": "08 Jul 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BABAR RUSHIKESH RAJENDRA",
+    "Birth Date": "06 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BANGAL OMKAR ABHAY",
+    "Birth Date": "22 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BEDADE AMOL SAMPAT",
+    "Birth Date": "03 Oct 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BENDRE OM PRADEEP",
+    "Birth Date": "22 Apr 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BHOSALE SHREYA KAMALAKAR",
+    "Birth Date": "20 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BOBDE ATHARV ASHOK",
+    "Birth Date": "07 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BODKE PRATHAM RAJU",
+    "Birth Date": "31 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BOHARA SRUSHTI SHRIHARI",
+    "Birth Date": "28 Nov 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BOKADE ASHLESHA VIJAY",
+    "Birth Date": "12 Jan 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BONDE VISHWESH PRAVIN",
+    "Birth Date": "17 Aug 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BURDE YASHAS KUMAR",
+    "Birth Date": "17 Jan 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "CHAUDHARI HARSHAD LALIT",
+    "Birth Date": "30 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "CHAVHAN AKSHITA PRAKASH",
+    "Birth Date": "23 Mar 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "DAHIBHATE HITESH ANIL",
+    "Birth Date": "11 Feb 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "DAS BISHAL SISHIR",
+    "Birth Date": "08 Nov 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "DEORE SUKESHNI PRADEEP",
+    "Birth Date": "30 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "DESHMUKH ANURAG ARJUN",
+    "Birth Date": "13 May 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "DETROJA SUHANI ATUL",
+    "Birth Date": "04 Jan 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "DHONGADE SANSKAR SACHIN",
+    "Birth Date": "16 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "FULARE RITESH SANJAY",
+    "Birth Date": "30 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GANGADE SHASHANK NAGNATH",
+    "Birth Date": "03 Dec 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GANGURDE RUCHIRA SANJAY",
+    "Birth Date": "05 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GHORPADE SHREYASH BIRU",
+    "Birth Date": "06 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GIRASE BHARGAV GORAKSINH",
+    "Birth Date": "03 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GIRI PRASHANT PRATAP",
+    "Birth Date": "28 Aug 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GOTMARE AMEYA PRAKASH",
+    "Birth Date": "25 Jun 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GUDADHE ROSHAN VINOD",
+    "Birth Date": "18 May 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GUJAR GAURI ARVIND",
+    "Birth Date": "14 Oct 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "HAJARE ROHIT SIDDHINATH",
+    "Birth Date": "02 Feb 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "HARSH RAJESH SHARMA..",
+    "Birth Date": "02 Jul 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "HINGMIRE AADITYA SHRIKRISHNA",
+    "Birth Date": "03 Mar 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "HINGMIRE SANKALP AMOL",
+    "Birth Date": "03 Sep 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "HIRE NIKHIL SANDEEP",
+    "Birth Date": "17 Jul 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "HULAWALE PRANITA SACHIN",
+    "Birth Date": "08 May 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "INGLE PRANJALI JIVAN",
+    "Birth Date": "04 Nov 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "INGOLE PRANAV PRAKASH",
+    "Birth Date": "17 May 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "INSHITA PRAJAPATI..",
+    "Birth Date": "03 Dec 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JADHAV RIYA DAYANAND",
+    "Birth Date": "17 May 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JADHAV SARTHAK RAMESH",
+    "Birth Date": "17 May 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JADHAV SHUBHAM VAMAN",
+    "Birth Date": "26 Feb 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JAGTAP AARYA RAM",
+    "Birth Date": "25 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JAGTAP KIRTI SUNIL",
+    "Birth Date": "24 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JAGTAP SIDDHANTH MANOHAR",
+    "Birth Date": "01 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JANE OJAS PRASHANT",
+    "Birth Date": "30 Apr 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JOSHI ATHARVA VINOD",
+    "Birth Date": "11 Mar 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JOSHI SWARAJ NANDKUMAR",
+    "Birth Date": "28 Feb 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JOSHI VINAYAK RAMESH",
+    "Birth Date": "18 Mar 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KAMBLE SUSHMA PRADEEP",
+    "Birth Date": "28 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KARMALKAR ATHARV SANTOSH",
+    "Birth Date": "29 Mar 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KARPE RUTUJA KAKASAHEB",
+    "Birth Date": "30 Jun 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KAWALE ROHIT PRAMOD",
+    "Birth Date": "01 Feb 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KHACHANE VAISHNAVI GANESH",
+    "Birth Date": "10 May 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KHANDAR ANSHUL HARISHCHANDRA",
+    "Birth Date": "06 Nov 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KHARCHE MANASI SANTOSH",
+    "Birth Date": "29 Aug 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KINGE ANSHUL NITIN",
+    "Birth Date": "28 Apr 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KOLTE SANSKAR JAGDISH",
+    "Birth Date": "14 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KOPULWAR ROSHAN SURESH",
+    "Birth Date": "22 May 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KOSHTI DHANANJAY DILEEP",
+    "Birth Date": "19 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KOTE SHRUTIKA DHANESH",
+    "Birth Date": "25 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KUDMATE ANIKET DILIP",
+    "Birth Date": "01 Apr 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KULKARNI CHAITANYA MANOHAR",
+    "Birth Date": "12 Mar 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KUMBHAR TANVI MUKUND",
+    "Birth Date": "06 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KUNJIR ATHARVA SANJAY",
+    "Birth Date": "06 Jun 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "LAHASE ADITYA SUNIL",
+    "Birth Date": "18 Jul 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "LODHA PALAK PRANAY",
+    "Birth Date": "16 Nov 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "LOKHANDE SAHIL GANESH",
+    "Birth Date": "19 Aug 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "MALDAR AYAAN ARSHAD",
+    "Birth Date": "20 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "MAPARI ANIKET GAJANAN",
+    "Birth Date": "19 Jun 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "MOHOD SAMYAK MILIND",
+    "Birth Date": "12 Jun 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "MORE SANALI SANJAY",
+    "Birth Date": "10 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "MULLA REHAN SALIM",
+    "Birth Date": "31 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "MUNDE SARVESH SHIVAJIRAO",
+    "Birth Date": "14 May 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "MUSALE AYUSH PRALHAD",
+    "Birth Date": "01 Dec 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "NADAF YAKUB FIROJ",
+    "Birth Date": "14 Jun 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "NAPHADE DHRUV SANDEEP",
+    "Birth Date": "25 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "NAVGHARE DIPALI RAJIV",
+    "Birth Date": "12 Nov 2003",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "NICHAL PAWNI VINAY",
+    "Birth Date": "20 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "NIKHIL KUMAR YADAV..",
+    "Birth Date": "16 May 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PANDEY ANKIT MUKESH",
+    "Birth Date": "19 Mar 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PANDHARPURE PRANAV ANIL",
+    "Birth Date": "05 Mar 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PATIL AMLA AMOL",
+    "Birth Date": "27 Jun 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PATIL GOPI VIJAY",
+    "Birth Date": "28 Nov 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PATIL KRUSHNA MANOJ",
+    "Birth Date": "06 May 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PATIL PRIYANKA DATTATRAYA",
+    "Birth Date": "24 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PATIL RIDDHI RAHUL",
+    "Birth Date": "10 Jan 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PATIL RIYA GANESH",
+    "Birth Date": "10 Feb 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PATIL SWAPNIL SANDEEP",
+    "Birth Date": "25 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PAWAR OM KESHAV",
+    "Birth Date": "21 Apr 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PAWAR PREM RAMDAS",
+    "Birth Date": "25 Aug 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PAWAR RAJVARDHAN NITINKUMAR",
+    "Birth Date": "28 Mar 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "POL AVIRAJ VINAYAK",
+    "Birth Date": "03 Jan 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PRIYANK SAHU..",
+    "Birth Date": "06 Aug 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "RAJHANS RUTURAJ RAHUL",
+    "Birth Date": "07 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "RANANWARE PRATHAMESH SACHIN",
+    "Birth Date": "01 Aug 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "RASKAR AKSHADA VILAS",
+    "Birth Date": "19 Apr 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "RAWOOL ROHIT RAMA",
+    "Birth Date": "19 Mar 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SABALE MILIND SANTOSH",
+    "Birth Date": "03 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SADAVARTE ABOLI AMOL",
+    "Birth Date": "08 Jan 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHARAYU SALVE KARTAVYA DEEPAK",
+    "Birth Date": "21 Apr 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SALVE VINAY CHANDRMANI",
+    "Birth Date": "02 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SAMUEL ASHLEY JOHN",
+    "Birth Date": "30 May 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SADHANA SAUMYA JHA..",
+    "Birth Date": "07 Mar 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SAVALE SATWIK PRASHANT",
+    "Birth Date": "14 Jan 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SAYED AFFAN NASIRODDIN",
+    "Birth Date": "16 May 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHAIKH IRFAN AHMADPASHA",
+    "Birth Date": "28 Jan 2007",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHARMA ANUJ AMARNATH",
+    "Birth Date": "09 Jan 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHARMA BHAKTI PAVAN",
+    "Birth Date": "27 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHASHANK SHEKHAR SINGH.",
+    "Birth Date": "20 Dec 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JYOTI SHELAR RUGVED SAMEER",
+    "Birth Date": "26 Mar 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHETE OM SHRIDHAR",
+    "Birth Date": "17 Jan 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHIKARE SAI UDDHAV",
+    "Birth Date": "20 Jun 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "JYOTI SHISAV PREM CHANDRAKANT",
+    "Birth Date": "17 Mar 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SONAWANE ATHARVA RATILAL",
+    "Birth Date": "22 Aug 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "VAISHALI SONAWANE GARGI GOPAL",
+    "Birth Date": "25 Nov 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SONAWANE HARSHAL SUNIL",
+    "Birth Date": "13 Feb 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SULGUDLE GAURISHANKAR GURUNATH",
+    "Birth Date": "12 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SURYAWANSHI ROHAN DILIP",
+    "Birth Date": "11 Mar 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "THAKARE SANIYA MANOJ",
+    "Birth Date": "12 Feb 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "THORAT OM AVINASH",
+    "Birth Date": "31 Jul 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "TORASKAR HARSHIT ANIL",
+    "Birth Date": "17 Apr 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "TORMAL NAMRATA NAVNATH",
+    "Birth Date": "20 May 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "UGALE KRUSHNA SANJAY",
+    "Birth Date": "16 Oct 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "UGALE PRIYA NAVNATH",
+    "Birth Date": "03 Jun 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "UMALKAR ANKIT SWAPNIL",
+    "Birth Date": "21 Sep 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "YADAV SACHIN NAVRATAN",
+    "Birth Date": "04 May 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "YADAV YASH ASHOK",
+    "Birth Date": "04 Jul 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BHARATI YELE MAHARSHI HITESH",
+    "Birth Date": "10 Oct 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "YEWATE ANAND VILAS",
+    "Birth Date": "17 Aug 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "BIDGAR RUTUJA UTTAM",
+    "Birth Date": "28 Mar 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "DESHMUKH OM PRAMOD",
+    "Birth Date": "23 Oct 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "GHAYAL ABHISHEK MANOHAR",
+    "Birth Date": "20 Nov 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KANDE VAISHNAVI SUDHAKAR",
+    "Birth Date": "15 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KATHE DNYANESHWARI BHAUSAНЕВ",
+    "Birth Date": "04 Dec 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KEDAR VAISHNAV SUDHIR",
+    "Birth Date": "27 Aug 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KHANDEKAR VIRAJ SURESH",
+    "Birth Date": "25 Jun 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KHARAT VAISHNAVI DATTA",
+    "Birth Date": "22 Jun 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "KULKARNI CHAITANYA UMESH",
+    "Birth Date": "10 May 2004",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "MEDHE MANODNYA RAJENDRA",
+    "Birth Date": "02 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "ΝΑΙΚNAWARE SUJAL YASHWANT",
+    "Birth Date": "03 May 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "PRABHUNE EESHAN YOGESH",
+    "Birth Date": "17 May 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "RATHI MOHIT MANOJ",
+    "Birth Date": "24 Mar 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SALUNKE AJINKYA VIJAY",
+    "Birth Date": "28 Feb 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SALUNKHE SARVESH DEEPAK",
+    "Birth Date": "27 Feb 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHAIKH RIHAN AHEMAD",
+    "Birth Date": "03 Aug 2005",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "SHINDE PRATIK SAINATH",
+    "Birth Date": "22 Feb 2006",
+    "Department": "IT"
+  },
+  {
+    "Student Name": "UPARWAD TIRUPATI SANJAY",
+    "Birth Date": "01 Jun 2002",
+    "Department": "IT"
+  }
+]
