@@ -9,6 +9,10 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
     #campusgpt-chatwin {
       font-family: 'Inter', sans-serif;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
     #campusgpt-chatbtn {
       transition: transform 0.2s ease-in-out;
@@ -33,10 +37,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(90deg, #6d28d9, #8b5cf6);
+      background: rgba(255, 255, 255, 0.1);
       color: white; 
       padding: 12px; 
       font-weight: 700;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
     #cgpt-close-btn {
       background: none;
@@ -86,6 +91,13 @@
     }
     #cgpt-send:hover {
       background: #6d28d9 !important;
+    }
+    #cgpt-input {
+      background-color: #f3f4f6; /* Solid, light gray background */
+      color: #1f2937; /* Dark text for contrast */
+      padding: 10px 16px; /* Add vertical and horizontal padding */
+      border: 1px solid #e5e7eb; /* Subtle border */
+      border-radius: 8px; /* Rounded corners */
     }
     #cgpt-input::placeholder {
       color: #9ca3af;
@@ -143,8 +155,8 @@
     </div>
     <div id="cgpt-messages" style="padding:16px; height:300px; overflow:auto; display:flex; flex-direction:column; gap: 8px; flex-grow: 1; scroll-behavior: smooth;"></div>
     <div style="display:flex; gap:8px; padding:10px; border-top:1px solid #e5e7eb">
-      <input id="cgpt-input" class="input" placeholder="Ask a question..." style="flex:1; background-color: #f3f4f6; border-color: #e5e7eb;" />
-      <button id="cgpt-send" class="btn" style="background: #7c3aed; color: white; border-radius: 8px; padding: 10px 16px; transition: background-color 0.3s ease;">Send</button>
+      <input id="cgpt-input" class="input" placeholder="Ask a question..." style="background: transparent; border-color: rgba(255,255,255,0.3); color: white;" />
+      <button id="cgpt-send" class="btn" style="background: rgba(255,255,255,0.2); color: white; border-radius: 8px; padding: 10px 16px; transition: background-color 0.3s ease;">Send</button>
     </div>
   `;
   document.body.appendChild(win);
@@ -190,8 +202,8 @@
     const container = document.getElementById('cgpt-messages');
     const el = document.createElement('div');
     el.className = 'chat-bubble';
-    el.style.background = sender === 'bot' ? '#e5e7eb' : 'linear-gradient(90deg, #6d28d9, #8b5cf6)';
-    el.style.color = sender === 'bot' ? '#1f2937' : 'white';
+    el.style.background = sender === 'bot' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.4)';
+    el.style.color = sender === 'bot' ? '#f1f5f9' : '#f1f5f9';
     el.style.alignSelf = sender === 'bot' ? 'flex-start' : 'flex-end';
     
     if (isHtml) {
