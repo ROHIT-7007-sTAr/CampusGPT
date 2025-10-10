@@ -359,7 +359,7 @@ async function loadTodaysBirthdays() {
     });
 
     if (birthdaysToday.length > 0) {
-      const names = birthdaysToday.map(s => `<p class="text-slate-300">${s['Student Name']}</p>`).join('');
+      const names = birthdaysToday.map(s => `<p class="text-slate-300">${s['Student Name']} (${s['Department']})</p>`).join('');
       container.innerHTML = names;
     } else {
       container.innerHTML = '<p class="text-slate-400">No birthdays today.</p>';
