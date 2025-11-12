@@ -6,14 +6,14 @@
  * @param {string} prompt The text prompt to send to the model.
  * @returns {Promise<string>} The text response from the model.
  */
-async function callGemini(prompt) {
+async function callGemini(history) {
   try {
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ prompt }),
+      body: JSON.stringify({ history }),
     });
 
     if (!response.ok) {

@@ -198,6 +198,8 @@
     }
   }
 
+  let chatHistory = [];
+
   async function addMessage(content, sender = 'bot', isHtml = false) {
     const container = document.getElementById('cgpt-messages');
     const el = document.createElement('div');
@@ -205,16 +207,24 @@
     el.style.background = sender === 'bot' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.4)';
     el.style.color = sender === 'bot' ? '#f1f5f9' : '#f1f5f9';
     el.style.alignSelf = sender === 'bot' ? 'flex-start' : 'flex-end';
-    
+
     if (isHtml) {
-      el.innerHTML = content;
+        el.innerHTML = content;
     } else {
-      el.textContent = content;
+        el.textContent = content;
     }
 
     container.appendChild(el);
     container.scrollTop = container.scrollHeight;
-  }
+
+    // Add to history if it's not HTML content (like typing indicator)
+    if (!isHtml) {
+        chatHistory.push({
+            role: sender === 'user' ? 'user' : 'model',
+            parts: [{ text: content }],
+        });
+    }
+}
 
   async function handle() {
     const input = document.getElementById('cgpt-input');
@@ -286,14 +296,19 @@
     // ✨ New: Fallback to Gemini API with Typing Indicator
     await addMessage(`<div class="typing-indicator"><span></span><span></span><span></span></div>`, "bot", true);
     
-    const prompt = `You are CampusGPT, a friendly and helpful academic assistant. A user asked: "${q}". Provide a concise and helpful answer. If it's outside academic topics, politely decline.`;
-    const geminiResponse = await callGemini(prompt);
+    const geminiResponse = await callGemini(chatHistory);
 
     // Update the "Thinking..." message with the actual response
     const messagesContainer = document.getElementById('cgpt-messages');
     const lastMessage = messagesContainer.lastChild;
     lastMessage.innerHTML = ''; // Clear the typing indicator
     lastMessage.textContent = geminiResponse;
+
+    // Manually add bot response to history
+    chatHistory.push({
+        role: 'model',
+        parts: [{ text: geminiResponse }]
+    });
   }
 
   async function handleTimetableAndFaculty(query) {

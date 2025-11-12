@@ -1,6 +1,7 @@
 // teacher.js
 document.addEventListener('DOMContentLoaded', initTeacher);
 
+
 let allStudents = []; // Cache students to avoid re-fetching
 let currentDivision = null; // To store the teacher's currently selected division
 
@@ -86,27 +87,41 @@ async function loadFaculty() {
   }
 }
 
-async function loadStudents(){
-  const container = document.getElementById('studentList');
-  if (!container) return; 
-  container.innerHTML = '<p class="text-slate-400 text-center">Loading students...</p>';
-  try {
-    const res = await fetch('students.json');
-    if (!res.ok) throw new Error('students.json not found');
-    const allStudents = await res.json();
-    
-    container.innerHTML = allStudents.map(s => `
-      <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700 flex justify-between items-center">
-          <div>
-              <p class="font-bold text-white">${s.name}</p>
-              <p class="text-xs text-slate-400">${s.roll_no}</p>
-          </div>
-          <label class="flex items-center space-x-2 cursor-pointer">
-              <input type="checkbox" class="present-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-sky-500 focus:ring-sky-500" data-uid="${s.roll_no}" />
-              <span class="text-slate-300">Present</span>
-          </label>
-      </div>
-    `).join('');
+async function loadStudents() {
+    const container = document.getElementById('studentList');
+    if (!container) return;
+    container.innerHTML = '<p class="text-slate-400 text-center">Loading students...</p>';
+
+    if (!currentDivision) {
+        container.innerHTML = '<p class="text-red-400">Could not determine your division. Please log in again.</p>';
+        return;
+    }
+
+    try {
+        // Determine which student file to load based on the teacher's division
+        const studentFile = `${currentDivision.toLowerCase()}students.json`;
+        const res = await fetch(studentFile);
+        if (!res.ok) throw new Error(`Could not find student data for division: ${currentDivision}`);
+        
+        allStudents = await res.json(); // Cache the students
+
+        if (!allStudents || allStudents.length === 0) {
+            container.innerHTML = `<p class="text-slate-400 text-center">No students found for division ${currentDivision}.</p>`;
+            return;
+        }
+
+        container.innerHTML = allStudents.map(s => `
+            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700 flex justify-between items-center">
+                <div>
+                    <p class="font-bold text-white">${s['Student Name'] || 'N/A'}</p>
+                    <p class="text-xs text-slate-400">${s['Roll No'] || 'N/A'}</p>
+                </div>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="checkbox" class="present-checkbox h-5 w-5 rounded bg-slate-700 border-slate-600 text-sky-500 focus:ring-sky-500" data-uid="${s['Roll No']}" />
+                    <span class="text-slate-300">Present</span>
+                </label>
+            </div>
+        `).join('');
     
     const selectedDate = document.getElementById('attendanceDatePicker').value;
     loadAttendanceForDate(selectedDate);
@@ -228,62 +243,103 @@ async function loadTests(){
   }
 }
 
-async function renderGradingList(){
-  const testId = document.getElementById('selectTest').value;
-  const container = document.getElementById('gradingList');
-  if(!container) return;
+async function renderGradingList() {
 
-  container.innerHTML = '';
-  if(!testId) return;
+    const testId = document.getElementById('selectTest').value;
 
-  try {
-    const testSnap = await db.collection('tests').doc(testId).get();
-    if(!testSnap.exists) { container.innerHTML = 'Test not found'; return; }
-    const test = testSnap.data();
-    
-    const existing = test.grades || [];
-    container.innerHTML = allStudents.map(s => {
-        const eg = existing.find(g => g.studentId === s.id) || {};
-        return `
+    const container = document.getElementById('gradingList');
+
+    if (!container) return;
+
+
+
+    container.innerHTML = '';
+
+    if (!testId) return;
+
+
+
+    try {
+
+        const testSnap = await db.collection('tests').doc(testId).get();
+
+        if (!testSnap.exists) {
+
+            container.innerHTML = 'Test not found';
+
+            return;
+
+        }
+
+        const test = testSnap.data();
+
+
+
+        const existing = test.grades || [];
+
+        container.innerHTML = allStudents.map(s => {
+
+            const eg = existing.find(g => g.studentId === s['Roll No']) || {};
+
+            return `
+
         <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700">
-            <p class="font-bold text-white mb-2">${s.name || s.email}</p>
+
+            <p class="font-bold text-white mb-2">${s['Student Name'] || 'N/A'}</p>
+
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-            <input class="sm:col-span-1 w-full bg-slate-900/70 border border-slate-600 rounded-lg px-3 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 transition grade-score" type="number" placeholder="Score" data-uid="${s.id}" value="${eg.score||''}" />
-            <input class="sm:col-span-2 w-full bg-slate-900/70 border border-slate-600 rounded-lg px-3 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 transition grade-sugg" placeholder="Suggestion (optional)" data-uid="${s.id}" value="${eg.suggestion||''}" />
-            <button class="sm:col-span-3 mt-1 text-xs bg-sky-700/50 hover:bg-sky-600/50 text-sky-200 py-1 px-2 rounded-md" onclick="generateAISuggestion(this, '${s.id}')">✨ AI Suggestion</button>
+
+            <input class="sm:col-span-1 w-full bg-slate-900/70 border border-slate-600 rounded-lg px-3 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 transition grade-score" type="number" placeholder="Score" data-uid="${s['Roll No']}" value="${eg.score || ''}" />
+
+            <input class="sm:col-span-2 w-full bg-slate-900/70 border border-slate-600 rounded-lg px-3 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 transition grade-sugg" placeholder="Suggestion (optional)" data-uid="${s['Roll No']}" value="${eg.suggestion || ''}" />
+
+            <button class="sm:col-span-3 mt-1 text-xs bg-sky-700/50 hover:bg-sky-600/50 text-sky-200 py-1 px-2 rounded-md" onclick="generateAISuggestion(this, '${s['Roll No']}')">✨ AI Suggestion</button>
+
             </div>
+
         </div>
+
         `;
-    }).join('');
-  } catch (err) {
-      console.error("Error rendering grading list:", err);
-      container.innerHTML = '<p class="text-red-400">Could not load grading information.</p>';
-  }
+
+        }).join('');
+
+    } catch (err) {
+
+        console.error("Error rendering grading list:", err);
+
+        container.innerHTML = '<p class="text-red-400">Could not load grading information.</p>';
+
+    }
+
 }
 
-async function saveGrades(){
-  const testId = document.getElementById('selectTest').value;
-  const status = document.getElementById('gradesMsg');
-  if(!status) return;
+async function saveGrades() {
+    const testId = document.getElementById('selectTest').value;
+    const status = document.getElementById('gradesMsg');
+    if (!status) return;
 
-  status.textContent = 'Saving...';
-  if(!testId){ status.textContent = 'Select a test'; return; }
-  try {
-    const scores = Array.from(document.querySelectorAll('.grade-score')).map(inp => {
-      const uid = inp.dataset.uid;
-      const score = inp.value ? Number(inp.value) : null;
-      const sugg = document.querySelector(`.grade-sugg[data-uid="${uid}"]`).value || '';
-      return { studentId: uid, score, suggestion: sugg };
-    }).filter(x => x.score !== null);
+    status.textContent = 'Saving...';
+    if (!testId) {
+        status.textContent = 'Select a test';
+        return;
+    }
+    try {
+        const scores = Array.from(document.querySelectorAll('.grade-score')).map(inp => {
+            const uid = inp.dataset.uid;
+            const score = inp.value ? Number(inp.value) : null;
+            const sugg = document.querySelector(`.grade-sugg[data-uid="${uid}"]`).value || '';
+            return { studentId: uid, score, suggestion: sugg };
+        }).filter(x => x.score !== null);
 
-    const gradesToSave = scores.map(s => ({ ...s, studentName: allStudents.find(stu => stu.id === s.studentId)?.name || '' }));
+        const gradesToSave = scores.map(s => ({ ...s, studentName: allStudents.find(stu => stu['Roll No'] === s.studentId)?.['Student Name'] || '' }));
 
-    await db.collection('tests').doc(testId).update({ grades: gradesToSave });
-    status.textContent = 'Grades saved ✓';
-    setTimeout(() => status.textContent = '', 2000);
-  } catch(err){
-    console.error(err); status.textContent = 'Error saving grades';
-  }
+        await db.collection('tests').doc(testId).update({ grades: gradesToSave });
+        status.textContent = 'Grades saved ✓';
+        setTimeout(() => status.textContent = '', 2000);
+    } catch (err) {
+        console.error(err);
+        status.textContent = 'Error saving grades';
+    }
 }
 
 function logout(){

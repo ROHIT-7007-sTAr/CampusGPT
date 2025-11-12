@@ -14,7 +14,7 @@ app.use(express.static('public')); // Serve static files
 const API_KEY = process.env.GEMINI_API_KEY;
 
 app.post('/api/chat', async (req, res) => {
-    const { prompt } = req.body;
+    const { history } = req.body;
 
     if (!API_KEY) {
         return res.status(500).json({ error: 'API key not configured.' });
@@ -24,9 +24,7 @@ app.post('/api/chat', async (req, res) => {
 
     try {
         const payload = {
-            contents: [{
-                parts: [{ text: prompt }],
-            }],
+            contents: history,
         };
 
         const apiRes = await fetch(API_URL, {

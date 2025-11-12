@@ -203,7 +203,11 @@
         if (found && found.divisions.includes(division)) {
           sessionStorage.setItem('campusgpt_role', 'teacher');
           sessionStorage.setItem('campusgpt_teacherName', found.name);
-          sessionStorage.setItem('campusgpt_division', division); // Save selected division
+          let simplifiedDivision = division.split('-')[0].toLowerCase();
+          if (simplifiedDivision === 'ita' || simplifiedDivision === 'itb') {
+            simplifiedDivision = 'it';
+          }
+          sessionStorage.setItem('campusgpt_division', simplifiedDivision); // Save simplified division
           window.location.href = 'teacher.html';
         } else {
           msgEl.textContent = 'Invalid credentials or division access.';
