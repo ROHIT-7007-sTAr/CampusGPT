@@ -135,12 +135,12 @@
         <p id="form-message" class="text-sm text-center text-red-400 min-h-[1.5rem]"></p>
 
         <div class="pt-4">
-          <button class="btn-submit" onclick="handleLogin()">Login</button>
+          <button id="login-button" class="btn-submit">Login</button>
         </div>
 
         <div class="text-center mt-8">
           <p class="text-slate-400 text-sm">Don't have an account?
-            <a href="#" class="font-semibold text-sky-400 hover:text-sky-300 transition-colors" onclick="showSignupForm(event)">Sign Up</a>
+            <a href="#" id="signup-link" class="font-semibold text-sky-400 hover:text-sky-300 transition-colors">Sign Up</a>
           </p>
         </div>
       </div>
@@ -226,7 +226,7 @@
             <div class="relative">
               <input id="signup-password" type="password" class="w-full px-4 py-2.5 pr-10 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-700"
                 placeholder="Enter password" />
-              <button type="button" onclick="togglePasswordVisibility('signup-password', 'password-toggle-icon')" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 hover:text-slate-700 focus:outline-none">
+              <button type="button" id="toggle-signup-password" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 hover:text-slate-700 focus:outline-none">
                 <svg id="password-toggle-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -243,7 +243,7 @@
             <div class="relative">
               <input id="signup-confirm-password" type="password" class="w-full px-4 py-2.5 pr-10 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-700"
                 placeholder="Confirm your password" />
-              <button type="button" onclick="togglePasswordVisibility('signup-confirm-password', 'confirm-password-toggle-icon')" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 hover:text-slate-700 focus:outline-none">
+              <button type="button" id="toggle-signup-confirm-password" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 hover:text-slate-700 focus:outline-none">
                 <svg id="confirm-password-toggle-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -257,8 +257,8 @@
         <p id="signup-message" class="text-sm text-center text-red-400 min-h-[1.5rem] mt-4"></p>
 
         <div class="pt-4 flex gap-4 justify-center">
-          <button class="px-6 py-2.5 bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-lg transition-colors" onclick="showLoginForm()">Cancel</button>
-          <button class="btn-submit" onclick="handleStudentSignup()">Sign Up</button>
+          <button id="cancel-signup-button" class="px-6 py-2.5 bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-lg transition-colors">Cancel</button>
+          <button id="signup-button" class="btn-submit">Sign Up</button>
         </div>
       </div>
     </div>
@@ -540,8 +540,8 @@
       document.getElementById('signup-message').textContent = '';
     }
 
-    // Show/hide division selector based on role
     document.addEventListener('DOMContentLoaded', function() {
+      // Show/hide division selector based on role
       const roleSelectorEl = document.getElementById('role-selector');
       const divisionSelectorEl = document.getElementById('division-selector');
       
@@ -562,25 +562,16 @@
           }
         });
       }
-    });
 
-    // Event listeners
-    document.addEventListener('DOMContentLoaded', function() {
-      // Branch change
+      // Event listeners
       document.getElementById('signup-branch').addEventListener('change', updateDivisionDropdown);
-      
-      // Year change
       document.getElementById('signup-year').addEventListener('change', updateRollPrefix);
-      
-      // Division change
       document.getElementById('signup-division').addEventListener('change', updateRollPrefix);
       
-      // Username - convert to lowercase on input
       document.getElementById('signup-username').addEventListener('input', function() {
         this.value = this.value.toLowerCase();
       });
       
-      // Username validation on blur
       document.getElementById('signup-username').addEventListener('blur', function() {
         const username = this.value.trim();
         const errorEl = document.getElementById('username-error');
@@ -595,7 +586,6 @@
         }
       });
       
-      // Password validation on input
       document.getElementById('signup-password').addEventListener('blur', function() {
         const password = this.value;
         const errorEl = document.getElementById('password-error');
@@ -610,7 +600,6 @@
         }
       });
       
-      // Email validation on input
       document.getElementById('signup-email').addEventListener('blur', function() {
         const emailLocal = this.value.trim();
         const email = emailLocal + '@students.isquareit.edu.in';
@@ -622,12 +611,10 @@
           errorEl.classList.remove('hidden');
           this.classList.add('border-red-500');
         } else {
-          // Check if email contains IRN format
           const irn = extractIRNFromEmail(email);
           if (irn) {
             const irnData = parseIRN(irn);
             if (irnData) {
-              // Auto-fill branch if empty
               const branchSelect = document.getElementById('signup-branch');
               if (!branchSelect.value && irnData.branch) {
                 branchSelect.value = irnData.branch;
@@ -651,7 +638,6 @@
         }
       });
       
-      // Confirm password validation
       document.getElementById('signup-confirm-password').addEventListener('blur', function() {
         const password = document.getElementById('signup-password').value;
         const confirmPassword = this.value;
@@ -666,6 +652,17 @@
           this.classList.remove('border-red-500');
         }
       });
+
+      document.getElementById('login-button').addEventListener('click', handleLogin);
+      document.getElementById('signup-link').addEventListener('click', showSignupForm);
+      document.getElementById('toggle-signup-password').addEventListener('click', function() {
+        togglePasswordVisibility('signup-password', 'password-toggle-icon');
+      });
+      document.getElementById('toggle-signup-confirm-password').addEventListener('click', function() {
+        togglePasswordVisibility('signup-confirm-password', 'confirm-password-toggle-icon');
+      });
+      document.getElementById('cancel-signup-button').addEventListener('click', showLoginForm);
+      document.getElementById('signup-button').addEventListener('click', handleStudentSignup);
     });
 
     async function handleLogin() {
@@ -785,14 +782,13 @@
       // Validate confirm password
       if (password !== confirmPassword) {
         document.getElementById('confirm-password-error').textContent = 'Passwords do not match';
-        document.getElementById('confirm-password-error').classList.remove('hidden');
+        document.getElementById('confirm-confirm-password-error').classList.remove('hidden');
         document.getElementById('signup-confirm-password').classList.add('border-red-500');
         msgEl.textContent = 'Passwords do not match.';
         return;
       }
       
       // Extract and validate IRN from email
-      const fullEmail = emailLocal + '@students.isquareit.edu.in';
       const irn = extractIRNFromEmail(fullEmail);
       if (!irn) {
         document.getElementById('email-error').textContent = 'Email must contain IRN in format: studentname_IRN@students.isquareit.edu.in';
