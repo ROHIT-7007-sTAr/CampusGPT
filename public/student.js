@@ -21,6 +21,36 @@ async function initStudent(){
   }
 }
 
+// Utility function to delete all previous projects (use with caution!)
+// This can be called from the browser console: deleteAllProjects()
+async function deleteAllProjects() {
+  if (!confirm('Are you sure you want to delete ALL projects? This cannot be undone!')) {
+    return;
+  }
+  
+  try {
+    const snap = await db.collection('blogs').get();
+    const batch = db.batch();
+    let count = 0;
+    
+    snap.docs.forEach(doc => {
+      batch.delete(doc.ref);
+      count++;
+    });
+    
+    if (count > 0) {
+      await batch.commit();
+      alert(`Deleted ${count} project(s).`);
+      loadBlogs();
+    } else {
+      alert('No projects to delete.');
+    }
+  } catch (err) {
+    console.error('Error deleting projects:', err);
+    alert('Failed to delete projects: ' + err.message);
+  }
+}
+
 function formatSingleTime(timeStr) {
     let [hours, minutes] = timeStr.split(':').map(s => parseInt(s, 10));
     minutes = minutes || 0;
@@ -184,71 +214,319 @@ async function loadFaculty() {
   }
 }
 
-// create blog post
+// Toggle post form visibility
+function togglePostForm() {
+  const formContainer = document.getElementById('postFormContainer');
+  const isHidden = formContainer.classList.contains('hidden');
+  
+  if (isHidden) {
+    formContainer.classList.remove('hidden');
+    // Clear any edit state
+    document.getElementById('submitPostBtn').textContent = 'Post Project';
+    document.getElementById('submitPostBtn').onclick = createPost;
+    clearPostForm();
+  } else {
+    formContainer.classList.add('hidden');
+  }
+}
+
+// Cancel post form
+function cancelPostForm() {
+  document.getElementById('postFormContainer').classList.add('hidden');
+  clearPostForm();
+  const msg = document.getElementById('postMsg');
+  if (msg) msg.textContent = '';
+}
+
+// Clear post form
+function clearPostForm() {
+  document.getElementById('postTitle').value = '';
+  document.getElementById('postContent').value = '';
+  document.getElementById('postGit').value = '';
+  document.getElementById('postLinked').value = '';
+  // Remove any error classes
+  document.getElementById('postGit').classList.remove('border-red-500');
+  document.getElementById('postLinked').classList.remove('border-red-500');
+}
+
+// Validate URL
+function validateURL(url, allowedDomain) {
+  if (!url || url.trim() === '') return { valid: true, message: '' };
+  
+  try {
+    const urlObj = new URL(url);
+    const hostname = urlObj.hostname.toLowerCase();
+    
+    // Check if it's the allowed domain
+    if (allowedDomain === 'github.com') {
+      if (hostname === 'github.com' || hostname === 'www.github.com') {
+        return { valid: true, message: '' };
+      }
+      return { valid: false, message: 'GitHub URL must be from github.com' };
+    } else if (allowedDomain === 'linkedin.com') {
+      if (hostname === 'linkedin.com' || hostname === 'www.linkedin.com') {
+        return { valid: true, message: '' };
+      }
+      return { valid: false, message: 'LinkedIn URL must be from linkedin.com' };
+    }
+    
+    return { valid: false, message: 'Invalid URL format' };
+  } catch (e) {
+    return { valid: false, message: 'Invalid URL format' };
+  }
+}
+
+// Create or update blog post
+let editingPostId = null;
+
 async function createPost(){
   const title = document.getElementById('postTitle').value.trim();
   const content = document.getElementById('postContent').value.trim();
   const git = document.getElementById('postGit').value.trim();
   const linked = document.getElementById('postLinked').value.trim();
   const msg = document.getElementById('postMsg');
+  
   msg.textContent = '';
-  if(!title || !content){ msg.textContent = 'Title & content required'; return; }
+  msg.className = 'text-sm font-semibold';
+  
+  // Validation
+  if(!title || !content){ 
+    msg.textContent = 'Title & content required';
+    msg.className = 'text-sm text-red-400 font-semibold';
+    return; 
+  }
+  
+  // Validate URLs
+  const gitValidation = validateURL(git, 'github.com');
+  const linkedValidation = validateURL(linked, 'linkedin.com');
+  
+  const gitInput = document.getElementById('postGit');
+  const linkedInput = document.getElementById('postLinked');
+  
+  if (!gitValidation.valid) {
+    gitInput.classList.add('border-red-500');
+    msg.textContent = gitValidation.message;
+    msg.className = 'text-sm text-red-400 font-semibold';
+    return;
+  } else {
+    gitInput.classList.remove('border-red-500');
+  }
+  
+  if (!linkedValidation.valid) {
+    linkedInput.classList.add('border-red-500');
+    msg.textContent = linkedValidation.message;
+    msg.className = 'text-sm text-red-400 font-semibold';
+    return;
+  } else {
+    linkedInput.classList.remove('border-red-500');
+  }
+  
   try {
     const stud = await getStudent(currentUid);
     const user = auth.currentUser;
-    // Prioritize student name from DB, fallback to email prefix, finally to 'Anonymous'
     const authorName = (stud && stud.name) ? stud.name : (user && user.email ? user.email.split('@')[0] : 'Anonymous');
 
-    await db.collection('blogs').add({
+    const postData = {
       authorId: currentUid,
-      authorName: authorName, // Always store a readable name
-      title, content, githubLink: git, linkedinLink: linked,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
-    msg.textContent = 'Posted ✓';
-    document.getElementById('postTitle').value=''; document.getElementById('postContent').value=''; document.getElementById('postGit').value=''; document.getElementById('postLinked').value='';
-    setTimeout(()=> msg.textContent='',1600);
+      authorName: authorName,
+      title, 
+      content, 
+      githubLink: git || '',
+      linkedinLink: linked || '',
+    };
+
+    if (editingPostId) {
+      // Update existing post
+      await db.collection('blogs').doc(editingPostId).update({
+        ...postData,
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      msg.textContent = 'Project updated ✓';
+      editingPostId = null;
+      document.getElementById('submitPostBtn').textContent = 'Post Project';
+      document.getElementById('submitPostBtn').onclick = createPost;
+    } else {
+      // Create new post
+      postData.timestamp = firebase.firestore.FieldValue.serverTimestamp();
+      await db.collection('blogs').add(postData);
+      msg.textContent = 'Project posted ✓';
+    }
+    
+    msg.className = 'text-sm text-green-400 font-semibold';
+    clearPostForm();
+    document.getElementById('postFormContainer').classList.add('hidden');
+    setTimeout(() => {
+      msg.textContent = '';
+    }, 2000);
     loadBlogs();
   } catch(err){
-    console.error(err); msg.textContent = 'Error posting';
+    console.error(err);
+    msg.textContent = 'Error: ' + (err.message || 'Failed to post');
+    msg.className = 'text-sm text-red-400 font-semibold';
+  }
+}
+
+// Edit post
+function editPost(postId) {
+  // Fetch the post data
+  db.collection('blogs').doc(postId).get().then(doc => {
+    if (!doc.exists) {
+      alert('Post not found');
+      return;
+    }
+    
+    const post = doc.data();
+    
+    // Check if user is the author
+    if (post.authorId !== currentUid) {
+      alert('You can only edit your own posts');
+      return;
+    }
+    
+    // Populate form
+    document.getElementById('postTitle').value = post.title || '';
+    document.getElementById('postContent').value = post.content || '';
+    document.getElementById('postGit').value = post.githubLink || '';
+    document.getElementById('postLinked').value = post.linkedinLink || '';
+    
+    // Set edit mode
+    editingPostId = postId;
+    document.getElementById('submitPostBtn').textContent = 'Update Project';
+    document.getElementById('submitPostBtn').onclick = createPost;
+    
+    // Show form
+    document.getElementById('postFormContainer').classList.remove('hidden');
+    
+    // Scroll to form
+    document.getElementById('postFormContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }).catch(err => {
+    console.error('Error loading post:', err);
+    alert('Failed to load post for editing');
+  });
+}
+
+// Delete post
+async function deletePost(postId) {
+  if (!confirm('Are you sure you want to delete this project?')) {
+    return;
+  }
+  
+  try {
+    // Verify user is the author
+    const postDoc = await db.collection('blogs').doc(postId).get();
+    if (!postDoc.exists) {
+      alert('Post not found');
+      return;
+    }
+    
+    const post = postDoc.data();
+    if (post.authorId !== currentUid) {
+      alert('You can only delete your own posts');
+      return;
+    }
+    
+    await db.collection('blogs').doc(postId).delete();
+    loadBlogs();
+  } catch(err) {
+    console.error('Error deleting post:', err);
+    alert('Failed to delete post');
   }
 }
 
 async function loadBlogs(){
   const feed = document.getElementById('blogFeed');
-  feed.innerHTML = '<p class="text-slate-400">Loading posts...</p>';
+  if (!feed) return;
   
-  // 1. Fetch all students and create a map of their IDs to names for lookup.
-  const studentsSnap = await db.collection('students').get();
-  const studentMap = {};
-  studentsSnap.forEach(doc => {
-    studentMap[doc.id] = doc.data().name || doc.data().email.split('@')[0];
-  });
-
-  // 2. Fetch blog posts
-  const snap = await db.collection('blogs').orderBy('timestamp','desc').get();
-  if(snap.empty){ feed.innerHTML = '<p class="text-slate-400">No project posts yet. Be the first!</p>'; return; }
+  feed.innerHTML = '<p class="text-slate-400 text-center">Loading projects...</p>';
   
-  const items = snap.docs.map(d => ({ id:d.id, ...d.data() }));
+  try {
+    // 1. Fetch all students and create a map of their IDs to names for lookup.
+    const studentsSnap = await db.collection('students').get();
+    const studentMap = {};
+    studentsSnap.forEach(doc => {
+      studentMap[doc.id] = doc.data().name || doc.data().email.split('@')[0];
+    });
 
-  // 3. Render posts, using the map to find the author's name if it's not on the post.
-  feed.innerHTML = items.map(p => {
-    // Check for the name on the post, then check the map, then fallback to the stored authorName (which might be the ID on old posts).
-    const authorDisplayName = studentMap[p.authorId] || p.authorName;
-    return `
-    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700 transition-all hover:border-sky-500/50">
-      <div class="flex justify-between items-center">
-        <h4 class="font-bold text-white">${p.title}</h4>
-        <p class="text-xs text-slate-500">${p.timestamp ? new Date(p.timestamp.seconds*1000).toLocaleDateString() : 'just now'}</p>
-      </div>
-      <p class="text-sm text-slate-400 mt-1">by ${authorDisplayName}</p>
-      <p class="text-slate-300 my-3">${p.content}</p>
-      <div class="flex gap-4">
-        ${p.githubLink ? `<a href="${p.githubLink}" target="_blank" class="text-sm text-sky-400 hover:underline">GitHub</a>` : ''}
-        ${p.linkedinLink ? `<a href="${p.linkedinLink}" target="_blank" class="text-sm text-sky-400 hover:underline">LinkedIn</a>` : ''}
-      </div>
-    </div>
-  `}).join('');
+    // 2. Fetch blog posts sorted by timestamp (newest first)
+    const snap = await db.collection('blogs').orderBy('timestamp', 'desc').get();
+    
+    if(snap.empty){ 
+      feed.innerHTML = '<p class="text-slate-400 text-center">No project posts yet. Be the first to share your project!</p>'; 
+      return; 
+    }
+    
+    const items = snap.docs.map(d => {
+      const data = d.data();
+      return { 
+        id: d.id, 
+        ...data,
+        // Handle both timestamp formats
+        timestamp: data.timestamp || data.createdAt || null
+      };
+    });
+
+    // Sort by date (most recent first) - fallback in case orderBy doesn't work
+    items.sort((a, b) => {
+      const dateA = a.timestamp ? (a.timestamp.seconds || a.timestamp) : 0;
+      const dateB = b.timestamp ? (b.timestamp.seconds || b.timestamp) : 0;
+      return dateB - dateA;
+    });
+
+    // 3. Render posts in list view
+    feed.innerHTML = items.map(p => {
+      const authorDisplayName = studentMap[p.authorId] || p.authorName || 'Unknown';
+      const isAuthor = p.authorId === currentUid;
+      
+      // Format date
+      let dateStr = 'Recently';
+      if (p.timestamp) {
+        const timestamp = p.timestamp.seconds ? p.timestamp.seconds * 1000 : p.timestamp;
+        const date = new Date(timestamp);
+        dateStr = date.toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'short', 
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+      }
+      
+      return `
+        <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700 transition-all hover:border-sky-500/50">
+          <div class="flex justify-between items-start mb-2">
+            <div class="flex-1">
+              <h4 class="font-bold text-white text-lg mb-1">${p.title || 'Untitled Project'}</h4>
+              <div class="flex items-center gap-3 text-sm">
+                <p class="text-slate-400">by <span class="text-sky-400 font-semibold">${authorDisplayName}</span></p>
+                <span class="text-slate-500">•</span>
+                <p class="text-slate-500">${dateStr}</p>
+              </div>
+            </div>
+            ${isAuthor ? `
+              <div class="flex gap-2 ml-4">
+                <button onclick="editPost('${p.id}')" class="text-xs bg-sky-600 hover:bg-sky-500 text-white font-semibold py-1 px-2 rounded transition-colors">Edit</button>
+                <button onclick="deletePost('${p.id}')" class="text-xs bg-red-600 hover:bg-red-500 text-white font-semibold py-1 px-2 rounded transition-colors">Delete</button>
+              </div>
+            ` : ''}
+          </div>
+          <p class="text-slate-300 my-3 whitespace-pre-wrap">${p.content || ''}</p>
+          <div class="flex gap-4 mt-4 pt-3 border-t border-slate-700">
+            ${p.githubLink ? `<a href="${p.githubLink}" target="_blank" rel="noopener noreferrer" class="text-sm text-sky-400 hover:text-sky-300 hover:underline flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>` : ''}
+            ${p.linkedinLink ? `<a href="${p.linkedinLink}" target="_blank" rel="noopener noreferrer" class="text-sm text-sky-400 hover:text-sky-300 hover:underline flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch (err) {
+    console.error('Error loading blogs:', err);
+    feed.innerHTML = '<p class="text-red-400 text-center">Error loading projects. Please refresh the page.</p>';
+  }
 }
 
 async function loadUpcomingTests() {

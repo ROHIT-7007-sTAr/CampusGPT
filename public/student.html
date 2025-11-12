@@ -134,16 +134,21 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- Blog Room -->
             <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
-                <h3 class="text-2xl font-bold text-white mb-4">Project Blog Room</h3>
-                <div class="space-y-4 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold text-white">Project Blog Room</h3>
+                    <button id="togglePostFormBtn" class="bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300 text-sm" onclick="togglePostForm()">Post your project</button>
+                </div>
+                <!-- Post Form (hidden by default) -->
+                <div id="postFormContainer" class="hidden space-y-4 mb-6">
                   <input id="postTitle" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="Project title" />
                   <textarea id="postContent" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 h-24 transition" placeholder="Describe your project..."></textarea>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                     <input id="postGit" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="GitHub URL (optional)" />
-                     <input id="postLinked" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="LinkedIn URL (optional)" />
+                     <input id="postGit" type="url" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="GitHub URL (optional)" />
+                     <input id="postLinked" type="url" class="w-full bg-slate-900/70 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition" placeholder="LinkedIn URL (optional)" />
                   </div>
                   <div class="flex items-center gap-4 pt-2">
-                    <button class="bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="createPost()">Post Project</button>
+                    <button id="submitPostBtn" class="bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-2 px-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all duration-300" onclick="createPost()">Post Project</button>
+                    <button id="cancelPostBtn" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-5 rounded-lg transition-all duration-300" onclick="cancelPostForm()">Cancel</button>
                     <span id="postMsg" class="text-sm text-green-400 font-semibold"></span>
                   </div>
                 </div>
@@ -217,6 +222,10 @@
       communityNav.classList.toggle('text-slate-400', viewName !== 'community');
       communityNav.classList.toggle('border-transparent', viewName !== 'community');
 
+      // Load blogs when Community tab is opened
+      if (viewName === 'community') {
+        loadBlogs();
+      }
 
       // Update styles for Faculty tab
       facultyNav.classList.toggle('text-white', viewName === 'faculty');
