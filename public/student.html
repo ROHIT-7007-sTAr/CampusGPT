@@ -7,50 +7,146 @@
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/themes/dark.css">
   <style>
-    .flatpickr-calendar {
-      width: 100% !important;
-      max-width: 100% !important;
+    /* Custom Calendar Styles */
+    .custom-calendar {
+      width: 100%;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding: 0.4rem 0;
+    }
+
+    .calendar-nav-btn {
       background: transparent;
-      border: none;
-      box-shadow: none;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: #cbd5e1;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 0.375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
-    .flatpickr-innerContainer, .flatpickr-rContainer, .flatpickr-days, .dayContainer {
-      width: 100% !important;
-      max-width: 100% !important;
+
+    .calendar-nav-btn:hover {
+      background: rgba(14, 165, 233, 0.1);
+      border-color: rgba(14, 165, 233, 0.5);
+      color: #0ea5e9;
     }
-    .flatpickr-day {
-      width: calc(100% / 7) !important;
-      max-width: calc(100% / 7) !important;
-      height: auto !important;
+
+    .calendar-month-year {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      text-transform: capitalize;
     }
-    .flatpickr-day {
-      color: #cbd5e1; /* slate-300 */
+
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.2rem;
+      margin-bottom: 0.4rem;
     }
-    .flatpickr-day.holiday-date {
-      background: #3b82f6;
-      border-color: #3b82f6;
+
+    .calendar-weekday {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.35rem 0;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.2rem;
+    }
+
+    .calendar-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      position: relative;
+      font-weight: 500;
+      min-height: 2rem;
+      max-height: 2.5rem;
+    }
+
+    .calendar-day:hover:not(.other-month):not(.disabled) {
+      background: rgba(14, 165, 233, 0.15);
+      color: #0ea5e9;
+    }
+
+    .calendar-day.other-month {
+      color: #475569;
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    .calendar-day.today {
+      background: rgba(14, 165, 233, 0.2);
+      color: #0ea5e9;
+      font-weight: 700;
+      border: 1px solid rgba(14, 165, 233, 0.4);
+    }
+
+    .calendar-day.selected {
+      background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
+    }
+
+    .calendar-day.selected:hover {
+      background: linear-gradient(135deg, #0284c7 0%, #0891b2 100%);
+    }
+
+    .calendar-day.holiday {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .calendar-day.holiday.today {
+      background: rgba(239, 68, 68, 0.25);
+      border-color: rgba(239, 68, 68, 0.5);
+    }
+
+    .calendar-day.holiday.selected {
+      background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
       color: #ffffff;
     }
-    .flatpickr-day.today {
-      border-color: #0ea5e9; /* sky-500 */
+
+    .calendar-day.disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
     }
-    .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
-      background: #0ea5e9; /* sky-500 */
-      border-color: #0ea5e9; /* sky-500 */
-    }
-    .flatpickr-weekday {
-      color: #94a3b8; /* slate-400 */
-    }
-    .flatpickr-month, .flatpickr-current-month {
-      color: #f1f5f9; /* slate-100 */
-    }
-    .flatpickr-prev-month, .flatpickr-next-month {
-      color: #94a3b8; /* slate-400 */
-    }
-    .flatpickr-prev-month:hover, .flatpickr-next-month:hover {
-      color: #0ea5e9; /* sky-500 */
+
+    @media (max-width: 640px) {
+      .calendar-day {
+        font-size: 0.75rem;
+      }
+      .calendar-weekday {
+        font-size: 0.7rem;
+      }
+      .calendar-month-year {
+        font-size: 0.9rem;
+      }
     }
   </style>
   
@@ -104,8 +200,20 @@
           <!-- Column 2 -->
           <div class="space-y-8">
               <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
-                <h3 class="text-2xl font-bold text-white mb-4">Calendar</h3>
-                <div id="calendar-container"></div>
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-2xl font-bold text-white">Calendar</h3>
+                  <div class="flex items-center gap-3 text-xs text-slate-400">
+                    <div class="flex items-center gap-1.5">
+                      <div class="w-2.5 h-2.5 rounded-full bg-sky-500"></div>
+                      <span>Today</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                      <span>Holiday</span>
+                    </div>
+                  </div>
+                </div>
+                <div id="calendar-container" class="custom-calendar"></div>
               </div>
               <div class="bg-slate-800/50 backdrop-blur-xl border border-sky-400/20 rounded-2xl p-6 shadow-2xl shadow-sky-500/10">
                   <h3 class="text-xl font-bold text-white mb-4">Timetable for <span id="selected-date"></span></h3>
@@ -185,7 +293,6 @@
     </main>
   </div>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
   <script src="gemini.js"></script>
   <script src="chatbot.js"></script>
   <script src="common.js"></script>

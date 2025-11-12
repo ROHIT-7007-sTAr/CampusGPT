@@ -117,6 +117,172 @@ async function loadStudentDashboard(){
   loadTodaysTimetable();
 }
 
+// Custom Calendar Implementation
+let currentCalendarDate = new Date();
+let selectedCalendarDate = new Date();
+
+const holidays = {
+  "15/08/2025": "Independence Day",
+  "27/08/2025": "Ganesh Chaturthi",
+  "02/10/2025": "Mahatma Gandhi Jayanti / Dussehra",
+  "20/10/2025": "Diwali Holiday",
+  "21/10/2025": "Diwali (Laxmi Poojan)",
+  "22/10/2025": "Diwali (Balipratipada)",
+  "23/10/2025": "Diwali (Bhaubij)",
+  "24/10/2025": "Diwali Holiday",
+  "25/10/2025": "Diwali Holiday",
+  "05/11/2025": "Gurunanak Jayanti",
+  "25/12/2025": "Christmas"
+};
+
+function formatDateForHoliday(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+function isSameDay(date1, date2) {
+  return date1.getDate() === date2.getDate() &&
+         date1.getMonth() === date2.getMonth() &&
+         date1.getFullYear() === date2.getFullYear();
+}
+
+function isToday(date) {
+  return isSameDay(date, new Date());
+}
+
+function isHoliday(date) {
+  // Check if it's a Sunday (0 = Sunday)
+  if (date.getDay() === 0) {
+    return true;
+  }
+  // Check if it's in the holidays list
+  return holidays.hasOwnProperty(formatDateForHoliday(date));
+}
+
+function renderCalendar() {
+  const calendarContainer = document.getElementById('calendar-container');
+  if (!calendarContainer) return;
+
+  const year = currentCalendarDate.getFullYear();
+  const month = currentCalendarDate.getMonth();
+
+  // Get first day of month and number of days
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const daysInMonth = lastDay.getDate();
+  const startingDayOfWeek = firstDay.getDay();
+
+  // Month names
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+  
+  // Weekday names
+  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  let html = `
+    <div class="calendar-header">
+      <button class="calendar-nav-btn" onclick="previousMonth()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <div class="calendar-month-year">${monthNames[month]} ${year}</div>
+      <button class="calendar-nav-btn" onclick="nextMonth()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="calendar-weekdays">
+      ${weekdays.map(day => `<div class="calendar-weekday">${day}</div>`).join('')}
+    </div>
+    <div class="calendar-days">
+  `;
+
+  // Add empty cells for days before the first day of the month
+  const prevMonth = month === 0 ? 11 : month - 1;
+  const prevYear = month === 0 ? year - 1 : year;
+  const daysInPrevMonth = new Date(prevYear, prevMonth + 1, 0).getDate();
+  
+  for (let i = startingDayOfWeek - 1; i >= 0; i--) {
+    const day = daysInPrevMonth - i;
+    html += `<div class="calendar-day other-month">${day}</div>`;
+  }
+
+  // Add days of the month
+  for (let day = 1; day <= daysInMonth; day++) {
+    const date = new Date(year, month, day);
+    const isSelected = isSameDay(date, selectedCalendarDate);
+    const isTodayDate = isToday(date);
+    const isHolidayDate = isHoliday(date);
+    const isSunday = date.getDay() === 0;
+    
+    let classes = 'calendar-day';
+    if (isSelected) classes += ' selected';
+    if (isTodayDate) classes += ' today';
+    if (isHolidayDate) classes += ' holiday';
+    
+    // Create holiday title - check if it's a Sunday or a specific holiday
+    let holidayTitle = '';
+    if (isHolidayDate) {
+      if (isSunday) {
+        holidayTitle = 'title="Sunday"';
+      } else {
+        const holidayName = holidays[formatDateForHoliday(date)];
+        if (holidayName) {
+          holidayTitle = `title="${holidayName}"`;
+        }
+      }
+    }
+    
+    html += `<div class="${classes}" ${holidayTitle} onclick="selectDate(${year}, ${month}, ${day})">${day}</div>`;
+  }
+
+  // Add empty cells for days after the last day of the month
+  const totalCells = startingDayOfWeek + daysInMonth;
+  const remainingCells = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+  for (let day = 1; day <= remainingCells; day++) {
+    html += `<div class="calendar-day other-month">${day}</div>`;
+  }
+
+  html += '</div>';
+  calendarContainer.innerHTML = html;
+}
+
+function previousMonth() {
+  currentCalendarDate.setMonth(currentCalendarDate.getMonth() - 1);
+  renderCalendar();
+}
+
+function nextMonth() {
+  currentCalendarDate.setMonth(currentCalendarDate.getMonth() + 1);
+  renderCalendar();
+}
+
+function selectDate(year, month, day) {
+  selectedCalendarDate = new Date(year, month, day);
+  renderCalendar();
+  
+  const dailyTimetableContainer = document.getElementById('daily-timetable-container');
+  const selectedDateEl = document.getElementById('selected-date');
+  
+  if (!dailyTimetableContainer || !selectedDateEl) return;
+
+  const dayOfWeek = selectedCalendarDate.toLocaleDateString('en-US', { weekday: 'long' });
+  const formattedDate = selectedCalendarDate.toLocaleDateString('en-GB', { 
+    day: 'numeric', 
+    month: 'long', 
+    year: 'numeric' 
+  });
+  
+  selectedDateEl.textContent = formattedDate;
+  displayTimetableForDay(dayOfWeek);
+}
+
+let timetableData = null;
+
 async function loadTimetable() {
   const calendarContainer = document.getElementById('calendar-container');
   const dailyTimetableContainer = document.getElementById('daily-timetable-container');
@@ -126,10 +292,10 @@ async function loadTimetable() {
 
   try {
     const response = await fetch('timetable.json');
-    const timetableData = await response.json();
+    timetableData = await response.json();
     const timetable = timetableData.Timetable;
 
-    const displayTimetableForDay = (day) => {
+    window.displayTimetableForDay = (day) => {
       const dayData = timetable[day];
       if (dayData) {
         let html = '<ul class="space-y-2">';
@@ -146,43 +312,17 @@ async function loadTimetable() {
       }
     };
 
-    const holidays = {
-      "15/08/2025": "Independence Day",
-      "27/08/2025": "Ganesh Chaturthi",
-      "02/10/2025": "Mahatma Gandhi Jayanti / Dussehra",
-      "20/10/2025": "Diwali Holiday",
-      "21/10/2025": "Diwali (Laxmi Poojan)",
-      "22/10/2025": "Diwali (Balipratipada)",
-      "23/10/2025": "Diwali (Bhaubij)",
-      "24/10/2025": "Diwali Holiday",
-      "25/10/2025": "Diwali Holiday",
-      "05/11/2025": "Gurunanak Jayanti",
-      "25/12/2025": "Christmas"
-    };
-
-    flatpickr(calendarContainer, {
-      inline: true,
-      dateFormat: "d/m/Y",
-      onChange: function(selectedDates, dateStr, instance) {
-        const selectedDate = selectedDates[0];
-        const dayOfWeek = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
-        selectedDateEl.textContent = dateStr;
-        displayTimetableForDay(dayOfWeek);
-      },
-      onDayCreate: function(dObj, dStr, fp, dayElem) {
-        const date = dayElem.dateObj;
-        const dateString = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
-        if (holidays[dateString]) {
-          dayElem.classList.add('holiday-date');
-          dayElem.title = holidays[dateString];
-        }
-      }
-    });
+    // Render calendar
+    renderCalendar();
 
     // Display timetable for today by default
     const today = new Date();
     const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
-    selectedDateEl.textContent = today.toLocaleDateString('en-GB', { day:'2-digit', month:'2-digit', year:'numeric' });
+    selectedDateEl.textContent = today.toLocaleDateString('en-GB', { 
+      day: 'numeric', 
+      month: 'long', 
+      year: 'numeric' 
+    });
     displayTimetableForDay(dayOfWeek);
 
   } catch (err) {
